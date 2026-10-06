@@ -231,7 +231,7 @@ body.modal-open{overflow:hidden}
   .toast{bottom:calc(84px + env(safe-area-inset-bottom));max-width:90vw;text-align:center}
 }
 
-#syncChip{position:fixed;left:12px;bottom:12px;z-index:45;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+#syncChip{position:fixed;right:14px;bottom:14px;z-index:45;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 #syncChip b{font-weight:600}
 #syncChip.sy-ok b{color:var(--brand)}#syncChip.sy-err{border-color:#e0a0a0}#syncChip.sy-off b{color:var(--muted)}
 #syGate{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;padding:16px;overflow:auto}
@@ -239,6 +239,29 @@ body.modal-open{overflow:hidden}
 #syGate .paw{font-size:34px}#syGate h2{margin:6px 0 4px}
 body.gate-open main,body.gate-open nav{filter:blur(6px);pointer-events:none}
 @media screen and (max-width:900px){#syncChip{left:auto;right:10px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom));padding:4px 8px;opacity:.9}#syncChip b{display:none}}
+.mapbox{height:380px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;z-index:0;background:#e9efe9}
+.mapbox.sm{height:220px}.mapbox.pick{height:240px;margin-top:8px}
+.mapnote{padding:18px;color:var(--muted);font-size:14px}
+.pin{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:17px;color:#fff;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35);background:#2f7d5b}
+.pin.stray{background:#d9822b}.pin.owner{background:#2f6fb5}.pin.xfer{background:#7a5aa6}
+.leaflet-popup-content{font:14px/1.4 system-ui,sans-serif;margin:12px 14px}
+.hrow{display:flex;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-top:10px;cursor:pointer}
+.hrow .hav{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:24px;background:var(--brand-soft);flex:none}
+.hrow .hb{min-width:0;flex:1}.hrow .hb div{overflow-wrap:anywhere}
+.hrow .hn{font-weight:700}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:10px 2px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+@media screen and (max-width:900px){.mapbox{height:300px}nav.bottom button{font-size:10.5px}}
+.chartwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.chartwrap svg{display:block;width:100%;height:auto}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stats .st{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.stats .st b{display:block;font-size:26px;line-height:1.1}.stats .st span{font-size:13px;color:var(--muted)}
+.stats .st.warn b{color:#b4531b}
+.adrow{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:10px}
+.adrow .tk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tkb{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer;min-height:36px}
+.tkb.on{background:var(--brand-soft);border-color:var(--brand);color:var(--brand);font-weight:600}
+.prog{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:8px}.prog i{display:block;height:100%;background:var(--brand)}
 #sheet{display:none}
 @media print{
   @page{margin:0.6in}
@@ -274,6 +297,7 @@ body.gate-open main,body.gate-open nav{filter:blur(6px);pointer-events:none}
     <button class="navbtn active" data-view="animals"><span class="ic">🐶</span>Animals</button>
     <button class="navbtn" data-view="today"><span class="ic">📋</span>Today</button>
     <button class="navbtn" data-view="calendar"><span class="ic">📅</span>Calendar</button>
+    <button class="navbtn" data-view="history"><span class="ic">📍</span>History</button>
     <button class="navbtn" data-view="settings"><span class="ic">⚙️</span>Settings</button>
     <div class="spacer"></div>
     <button class="navbtn" onclick="exportData()"><span class="ic">💾</span>Backup / Export</button>
@@ -287,6 +311,7 @@ body.gate-open main,body.gate-open nav{filter:blur(6px);pointer-events:none}
   <button class="navbtn active" data-view="animals"><span class="ic">🐶</span>Animals</button>
   <button class="navbtn" data-view="today"><span class="ic">📋</span>Today</button>
   <button class="navbtn" data-view="calendar"><span class="ic">📅</span>Calendar</button>
+  <button class="navbtn" data-view="history"><span class="ic">📍</span>History</button>
   <button class="navbtn" data-view="settings"><span class="ic">⚙️</span>Settings</button>
   <button class="navbtn" onclick="openIntake()"><span class="ic">＋</span>Intake</button>
 </nav>
@@ -454,9 +479,11 @@ function render(){
   if(VIEW==='animals') m.innerHTML = CUR? renderAnimal(CUR) : renderAnimals();
   else if(VIEW==='today') m.innerHTML=renderToday();
   else if(VIEW==='calendar') m.innerHTML=renderCalendar();
+  else if(VIEW==='history') m.innerHTML=renderHistory();
   else m.innerHTML=renderSettings();
   const nt=document.querySelector('.tabs');if(nt){nt.scrollLeft=keepScroll;const on=nt.querySelector('.tab.on,.tab.active');if(on&&on.offsetLeft+on.offsetWidth>nt.clientWidth+nt.scrollLeft||on&&on.offsetLeft<nt.scrollLeft)nt.scrollLeft=on.offsetLeft-12;}
   save();
+  try{afterRender();}catch(e){}
 }
 
 /* ====================== ANIMALS LIST ====================== */
@@ -525,7 +552,7 @@ function dueItems(a){
 let FORM=null;
 function openIntake(existing){
   FORM = existing? JSON.parse(JSON.stringify(existing)) : {id:uid(),name:'',species:'dog',breed:'',sex:'',color:'',weight:'',ageMode:'stage',ageStage:'adult',ageValue:'',ageUnit:'years',intakeDate:todayStr(),intakeTime:new Date().toTimeString().slice(0,5),surrender:'Stray',foundLocation:'',microchip:'',recordsProvided:false,notes:'',checklist:{},vaccines:[],treatments:[],weights:[],outcome:'',createdAt:Date.now()};
-  showModal(formHTML(!!existing));
+  showModal(formHTML(!!existing));mountPicker();
 }
 function formHTML(editing){
   const a=FORM;
@@ -570,12 +597,13 @@ function formHTML(editing){
     <div><label class="f">Intake date</label><input class="in" type="date" value="${a.intakeDate}" onchange="FORM.intakeDate=this.value"></div>
     <div><label class="f">Intake time</label><input class="in" type="time" value="${a.intakeTime||''}" onchange="FORM.intakeTime=this.value"></div>
   </div>
+  ${dropFormHTML(a)}
   <div class="section"><label class="f">Notes</label><textarea class="in" oninput="FORM.notes=this.value" placeholder="Condition on arrival, temperament, anything staff should know…">${esc(a.notes)}</textarea></div>
   <div class="row mfoot" style="justify-content:flex-end"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveForm()">${editing?'Save changes':'Complete intake'}</button></div>`;
 }
 function applyBirthday(a){if(!a.birthday)return;const bd=parseISO(a.birthday),it=parseISO(a.intakeDate||todayStr());let m=(it.getFullYear()-bd.getFullYear())*12+(it.getMonth()-bd.getMonth())+(it.getDate()-bd.getDate())/30.44;if(m<0)m=0;
   if(m<1){a.ageValue=String(Math.round(m*4.345*10)/10);a.ageUnit='weeks';}else if(m<12){a.ageValue=String(Math.round(m*10)/10);a.ageUnit='months';}else{a.ageValue=String(Math.round(m/12*10)/10);a.ageUnit='years';}}
-function refreshForm(){document.getElementById('modalBody').innerHTML=formHTML(!!DB.animals.find(x=>x.id===FORM.id));}
+function refreshForm(){document.getElementById('modalBody').innerHTML=formHTML(!!DB.animals.find(x=>x.id===FORM.id));mountPicker();}
 function saveForm(){
   if(!FORM.name.trim()){toast('Please give the animal a name');return;}
   FORM.weight=FORM.weight?parseFloat(FORM.weight):'';
@@ -610,7 +638,7 @@ function renderAnimal(){
   <div class="row" style="justify-content:flex-end;margin-top:16px"><span class="sub">Changes save automatically.</span><button class="btn primary" onclick="doneEditing()">✓ Done</button></div>`;
 }
 function doneEditing(){const a=A();if(a){a.updatedAt=Date.now();}save();window._mdStart=null;window._mdSel=null;CUR=null;TAB='overview';render();toast(a?`${a.name} saved`:'Saved');}
-function setOutcome(v){const a=A();a.outcome=v;a.outcomeDate=v?todayStr():'';a.updatedAt=Date.now();render();toast(v?'Status updated':'Back in care');}
+function setOutcome(v){const a=A();a.outcome=v;a.outcomeDate=v?todayStr():'';a.updatedAt=Date.now();if(v==='Adopted'&&!a.adopt)a.adopt={who:{},fee:'',note:'',tasks:{}};render();toast(v?'Status updated':'Back in care');if(v==='Adopted')openAdopt(a.id);}
 function deleteAnimal(){const a=A();if(!a)return;
   if(isLocked(a)){
     const typed=prompt(`🔒 ${a.name} is on the 48-hour stray hold (${holdText(a)}).\n\nDeleting is for erasing a mistaken entry only — it does NOT release the animal.\n\nType DELETE to confirm:`);
@@ -923,6 +951,7 @@ function animalSheet(a){
     <div class="org"><b>${esc(DB.settings.shelterName)}</b><br>Animal Record<br>Printed ${printed}</div></div>
   ${he?`<div class="alert">${he>new Date()?'🔒 48-HOUR STRAY HOLD IN EFFECT — ends '+he.toLocaleString(undefined,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'Stray hold completed '+he.toLocaleString(undefined,{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</div>`:''}
 
+  ${dropSheet(a)}
   <h2>Details</h2>
   <div class="kv"><div>Species</div><div>${s.name}</div><div>Intake type</div><div>${a.surrender}${a.recordsProvided?' (vaccine records provided)':''}</div>
    <div>Breed</div><div>${esc(a.breed)||'—'}</div><div>Intake date</div><div>${nice(a.intakeDate)} ${a.intakeTime?fmtTime(a.intakeTime):''}</div>
@@ -972,10 +1001,256 @@ function printDaily(){printHTML(dailySheet());}
 
 /* ====================== MODAL ====================== */
 function showModal(html){document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('open');document.body.classList.add('modal-open');setTimeout(()=>{const i=document.querySelector('#modalBody input');i&&i.focus();},50);}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.classList.remove('modal-open');}
+function closeModal(){if(typeof PMAP!=='undefined'&&PMAP){PMAP.remove();PMAP=null;}document.getElementById('modal').classList.remove('open');document.body.classList.remove('modal-open');}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 setInterval(()=>{if(VIEW==='animals'||VIEW==='today')render();},60000); // keep hold countdowns fresh
+/* ================= HISTORY / DROP-OFF MAP ================= */
+const DROP_HOW=['Brought in by finder','Owner brought in','Found by officer / animal control','Picked up by staff','Left at shelter (after hours)','Transferred from another shelter','Other'];
+const WARREN=[41.8437,-79.1450];
+let _LF=null,HMAP=null,PMAP=null,OMAP=null;
+function loadLeaflet(){
+  if(window.L)return Promise.resolve(true);
+  if(_LF)return _LF;
+  _LF=new Promise(res=>{
+    if(!navigator.onLine){_LF=null;return res(false);}
+    const l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(l);
+    const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    sc.onload=()=>res(true);sc.onerror=()=>{_LF=null;res(false);};document.head.appendChild(sc);
+  });
+  return _LF;
+}
+function newMap(el,center,zoom){
+  const m=L.map(el,{scrollWheelZoom:false}).setView(center,zoom);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(m);
+  return m;
+}
+const dropOf=a=>a.drop||{};
+const pinCls=a=>a.surrender==='Stray'?'stray':a.surrender==='Transfer In'?'xfer':'owner';
+function pinIcon(a){return L.divIcon({className:'',html:`<div class="pin ${pinCls(a)}">${sp(a.species).icon}</div>`,iconSize:[32,32],iconAnchor:[16,16],popupAnchor:[0,-16]});}
+function telLink(p){return p?`<a href="tel:${esc(String(p).replace(/[^\d+]/g,''))}" onclick="event.stopPropagation()">${esc(p)}</a>`:'';}
+function whoText(d){const w=(d&&d.who)||{};return [w.name,w.phone].filter(Boolean).join(' · ');}
+function whoHTML(d){const w=(d&&d.who)||{};if(!(w.name||w.phone||w.email||w.address))return '—';
+  return [w.name?esc(w.name):'',w.phone?telLink(w.phone):'',w.email?esc(w.email):'',w.address?esc(w.address):''].filter(Boolean).join('<br>');}
+/* --- intake form section --- */
+function dropFormHTML(a){
+  a.drop=a.drop||{};a.drop.who=a.drop.who||{};const d=a.drop,w=d.who;
+  return `<div class="section"><h3 style="margin:0 0 8px">Where &amp; who</h3>
+   <label class="f">How did the animal come in?</label>
+   <select class="in" onchange="FORM.drop.how=this.value"><option value="">Choose…</option>${DROP_HOW.map(h=>`<option ${d.how===h?'selected':''}>${h}</option>`).join('')}</select>
+   <label class="f" style="margin-top:10px">Where was it found / dropped off?</label>
+   <div class="row" style="flex-wrap:nowrap"><input class="in" id="dropPlace" style="flex:1;min-width:0" placeholder="Street address or place (e.g. Rt 6 near Starbrick)" value="${esc(d.place||'')}" oninput="FORM.drop.place=this.value" onkeydown="if(event.key==='Enter'){event.preventDefault();dropFind();}"><button class="btn" type="button" onclick="dropFind()">Find</button></div>
+   <div class="row" style="margin-top:8px"><button class="btn sm" type="button" onclick="dropHere()">📍 Use my location</button><button class="btn sm" type="button" onclick="dropClear()">Clear pin</button><span class="hint" id="dropState">${d.lat!=null?'Pinned. Tap the map or drag the pin to adjust.':'Tap the map to drop a pin, or type an address and tap Find.'}</span></div>
+   <div id="pickMap" class="mapbox pick"></div>
+   <label class="f" style="margin-top:12px">Person who brought it in / found it</label>
+   <div class="grid cols-2">
+     <input class="in" placeholder="Name" value="${esc(w.name||'')}" oninput="FORM.drop.who.name=this.value" autocomplete="off">
+     <input class="in" type="tel" placeholder="Phone" value="${esc(w.phone||'')}" oninput="FORM.drop.who.phone=this.value" autocomplete="off">
+     <input class="in" type="email" placeholder="Email (optional)" value="${esc(w.email||'')}" oninput="FORM.drop.who.email=this.value" autocomplete="off">
+     <input class="in" placeholder="Their address (optional)" value="${esc(w.address||'')}" oninput="FORM.drop.who.address=this.value" autocomplete="off">
+   </div>
+   <input class="in" style="margin-top:8px" placeholder="Anything else about the drop-off (circumstances, who else saw it…)" value="${esc(d.note||'')}" oninput="FORM.drop.note=this.value">
+  </div>`;
+}
+function dropSetPin(lat,lng,pan){
+  FORM.drop.lat=Math.round(lat*1e6)/1e6;FORM.drop.lng=Math.round(lng*1e6)/1e6;
+  const st=document.getElementById('dropState');if(st)st.textContent='Pinned. Tap the map or drag the pin to adjust.';
+  if(!PMAP)return;
+  if(PMAP._mk)PMAP._mk.setLatLng([lat,lng]);
+  else{PMAP._mk=L.marker([lat,lng],{draggable:true}).addTo(PMAP);PMAP._mk.on('dragend',e=>{const p=e.target.getLatLng();dropSetPin(p.lat,p.lng,false);});}
+  if(pan)PMAP.setView([lat,lng],Math.max(PMAP.getZoom(),15));
+}
+function mountPicker(){
+  if(!document.getElementById('pickMap'))return;
+  loadLeaflet().then(ok=>{
+    const el=document.getElementById('pickMap');if(!el||!FORM)return;
+    if(!ok){el.innerHTML='<div class="mapnote">The map needs internet. You can still type the address and save.</div>';return;}
+    if(PMAP){PMAP.remove();PMAP=null;}
+    const d=FORM.drop||{};const has=d.lat!=null;
+    PMAP=newMap(el,has?[d.lat,d.lng]:WARREN,has?15:10);
+    if(has)dropSetPin(d.lat,d.lng,false);
+    PMAP.on('click',e=>dropSetPin(e.latlng.lat,e.latlng.lng,false));
+    setTimeout(()=>PMAP&&PMAP.invalidateSize(),250);
+  });
+}
+async function dropFind(){
+  const q=(FORM.drop.place||'').trim();if(!q){toast('Type an address first');return;}
+  const st=document.getElementById('dropState');if(st)st.textContent='Looking…';
+  try{
+    const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&viewbox=-80.5,42.3,-78.0,41.2&q='+encodeURIComponent(q));
+    const j=await r.json();
+    if(!j[0]){if(st)st.textContent='Could not find that address. Tap the map to place the pin yourself.';return;}
+    if(PMAP)dropSetPin(+j[0].lat,+j[0].lon,true);else{FORM.drop.lat=+j[0].lat;FORM.drop.lng=+j[0].lon;if(st)st.textContent='Pinned.';}
+  }catch(e){if(st)st.textContent='No internet. Tap the map to place the pin, or save without one.';}
+}
+function dropHere(){
+  if(!navigator.geolocation){toast('This device cannot share its location');return;}
+  navigator.geolocation.getCurrentPosition(p=>{if(!PMAP){FORM.drop.lat=p.coords.latitude;FORM.drop.lng=p.coords.longitude;return;}dropSetPin(p.coords.latitude,p.coords.longitude,true);},()=>toast('Location was not shared'),{enableHighAccuracy:true,timeout:10000});
+}
+function dropClear(){FORM.drop.lat=null;FORM.drop.lng=null;if(PMAP&&PMAP._mk){PMAP.removeLayer(PMAP._mk);PMAP._mk=null;}const st=document.getElementById('dropState');if(st)st.textContent='Pin cleared.';}
+/* --- animal Overview card --- */
+function dropCard(a){
+  const d=dropOf(a);const has=d.lat!=null;
+  const any=d.how||d.place||has||(d.who&&(d.who.name||d.who.phone||d.who.email||d.who.address))||d.note;
+  return `<div class="card" style="margin-top:16px"><div class="row" style="justify-content:space-between"><h3 style="margin:0">📍 How it came in</h3>${isLocked(a)?'':`<button class="btn sm" onclick="openIntake(A())">Edit</button>`}</div>
+   ${any?`<div class="kv" style="margin-top:10px"><div>How</div><div>${esc(d.how)||'—'}</div><div>Where</div><div>${esc(d.place)||(has?'Pinned on map':'—')}</div><div>Brought by</div><div>${whoHTML(d)}</div>${d.note?`<div>Notes</div><div style="white-space:pre-wrap">${esc(d.note)}</div>`:''}</div>
+   ${has?'<div id="ovMap" class="mapbox sm" style="margin-top:12px"></div>':''}`:`<div class="sub" style="margin-top:8px">No drop-off details recorded. ${isLocked(a)?'':'Tap Edit to add where it was found and who brought it in.'}</div>`}</div>`;
+}
+const _tabOverview0=tabOverview;
+/* --- History tab --- */
+let HF={q:'',species:'',type:'',how:'',from:'',to:'',open:false};
+function histRows(){
+  const f=HF,q=f.q.trim().toLowerCase();
+  let r=DB.animals.slice();
+  if(q)r=r.filter(a=>[a.name,a.breed,(a.drop||{}).place,whoText(a.drop),((a.drop||{}).who||{}).email,(a.drop||{}).note].join(' ').toLowerCase().includes(q));
+  if(f.species==='other*')r=r.filter(a=>a.species!=='dog'&&a.species!=='cat');else if(f.species)r=r.filter(a=>a.species===f.species);
+  if(f.type)r=r.filter(a=>a.surrender===f.type);
+  if(f.how)r=r.filter(a=>(a.drop||{}).how===f.how);
+  if(f.from)r=r.filter(a=>a.intakeDate>=f.from);if(f.to)r=r.filter(a=>a.intakeDate<=f.to);
+  return r.sort((x,y)=>(y.intakeDate+(y.intakeTime||'')).localeCompare(x.intakeDate+(x.intakeTime||'')));
+}
+function renderIntakesTab(tabs){
+  const f=HF,rows=histRows(),pinned=rows.filter(a=>(a.drop||{}).lat!=null).length;
+  const nF=[f.type,f.how,f.from||f.to].filter(Boolean).length;
+  return `<div class="topbar"><div><h1>History</h1><div class="sub">Where and how every animal came in</div></div><button class="btn hide-m" onclick="histCSV()">⬇ Export list (CSV)</button></div>
+  ${tabs}
+  <div class="card fcard" style="margin-bottom:12px">
+    <div class="row" style="flex-wrap:nowrap"><input class="in" id="histq" style="flex:1;min-width:0" placeholder="Search name, place, person…" value="${esc(f.q)}" oninput="HF.q=this.value;render();keepFocus('histq')"><button class="btn filt-toggle" onclick="HF.open=!HF.open;render()">⚙ Filters${nF?` <span class="tag ok">${nF}</span>`:''}</button></div>
+    <div class="chips quick">${[['','All'],['dog','🐶 Dogs'],['cat','🐱 Cats'],['other*','🐾 Other']].map(c=>`<button class="chip ${f.species===c[0]?'on':''}" onclick="HF.species='${c[0]}';render()">${c[1]}</button>`).join('')}<span class="sub" style="margin-left:auto;align-self:center">${rows.length} shown</span></div>
+    <div class="fmore ${f.open?'open':''}"><div class="row">
+      <select class="in" style="flex:1;min-width:150px" onchange="HF.type=this.value;render()"><option value="">All intake types</option>${['Stray','Owner Surrender','Transfer In'].map(t=>`<option ${f.type===t?'selected':''}>${t}</option>`).join('')}</select>
+      <select class="in" style="flex:1;min-width:170px" onchange="HF.how=this.value;render()"><option value="">Any way of arriving</option>${DROP_HOW.map(h=>`<option ${f.how===h?'selected':''}>${h}</option>`).join('')}</select></div>
+      <div class="row" style="margin-top:10px"><span class="sub">Intake date</span><input type="date" class="in" style="width:170px" value="${f.from}" onchange="HF.from=this.value;render()"><span class="sub">to</span><input type="date" class="in" style="width:170px" value="${f.to}" onchange="HF.to=this.value;render()"><button class="btn sm" onclick="HF={q:'',species:'',type:'',how:'',from:'',to:'',open:true};render()">Clear filters</button></div></div>
+  </div>
+  <div id="histMap" class="mapbox"><div class="mapnote">Loading map…</div></div>
+  <div class="legend"><span><i style="background:#d9822b"></i>Stray</span><span><i style="background:#2f6fb5"></i>Owner surrender</span><span><i style="background:#7a5aa6"></i>Transfer in</span><span>${pinned} of ${rows.length} have a map pin</span></div>
+  ${rows.length?rows.map(a=>{const d=a.drop||{};return `<div class="hrow" onclick="histFocus('${a.id}')"><div class="hav">${sp(a.species).icon}</div><div class="hb">
+     <div class="hn">${esc(a.name)} <span class="tag ${a.surrender==='Stray'?'stray':'owner'}">${esc(a.surrender)}</span></div>
+     <div class="sub">${nice(a.intakeDate)}${a.intakeTime?' · '+fmtTime(a.intakeTime):''}${d.how?' · '+esc(d.how):''}</div>
+     ${d.place?`<div>📍 ${esc(d.place)}</div>`:(d.lat!=null?'<div>📍 Pinned on map</div>':'')}
+     ${whoText(d)?`<div>👤 ${esc((d.who||{}).name||'')}${(d.who||{}).phone?' · '+telLink(d.who.phone):''}</div>`:''}
+     <div style="margin-top:6px"><button class="btn sm" onclick="event.stopPropagation();openAnimal('${a.id}')">Open record</button></div></div></div>`;}).join(''):`<div class="card" style="margin-top:10px"><div class="sub">No animals match these filters.</div></div>`}`;
+}
+let HPINS={};
+function histFocus(id){const a=DB.animals.find(x=>x.id===id);if(!a)return;const m=HPINS[id];if(m&&HMAP){HMAP.setView(m.getLatLng(),Math.max(HMAP.getZoom(),14));m.openPopup();document.getElementById('histMap').scrollIntoView({behavior:'smooth',block:'center'});}else openAnimal(id);}
+function mountHistory(){
+  if(!document.getElementById('histMap'))return;
+  loadLeaflet().then(ok=>{
+    const el=document.getElementById('histMap');if(!el||VIEW!=='history')return;
+    if(!ok){el.innerHTML='<div class="mapnote">The map needs internet. The list below still works, and pins appear again when you are online.</div>';return;}
+    if(HMAP){HMAP.remove();HMAP=null;}HPINS={};el.innerHTML='';
+    HMAP=newMap(el,WARREN,10);const pts=[];
+    histRows().filter(a=>(a.drop||{}).lat!=null).forEach(a=>{const d=a.drop;
+      const mk=L.marker([d.lat,d.lng],{icon:pinIcon(a)}).addTo(HMAP);HPINS[a.id]=mk;pts.push([d.lat,d.lng]);
+      mk.bindPopup(`<b>${esc(a.name)}</b> · ${esc(a.surrender)}<br>${nice(a.intakeDate)}${d.how?'<br>'+esc(d.how):''}${d.place?'<br>📍 '+esc(d.place):''}${whoText(d)?'<br>👤 '+esc(d.who.name||'')+(d.who.phone?' · '+telLink(d.who.phone):''):''}<br><a href="#" onclick="openAnimal('${a.id}');return false">Open record →</a>`);});
+    if(pts.length)HMAP.fitBounds(pts,{padding:[40,40],maxZoom:14});
+    setTimeout(()=>HMAP&&HMAP.invalidateSize(),250);
+  });
+}
+function mountOverview(){
+  const el=document.getElementById('ovMap');if(!el)return;const a=A();if(!a||a.drop==null||a.drop.lat==null)return;
+  loadLeaflet().then(ok=>{const e=document.getElementById('ovMap');if(!e)return;if(!ok){e.innerHTML='<div class="mapnote">Map needs internet.</div>';return;}
+    if(OMAP){OMAP.remove();OMAP=null;}e.innerHTML='';OMAP=newMap(e,[a.drop.lat,a.drop.lng],15);L.marker([a.drop.lat,a.drop.lng],{icon:pinIcon(a)}).addTo(OMAP);setTimeout(()=>OMAP&&OMAP.invalidateSize(),250);});
+}
+function afterRender(){ const w=document.getElementById('adoptChartWrap');if(w)w.scrollLeft=w.scrollWidth; if(VIEW==='history')mountHistory(); else if(VIEW==='animals'&&CUR&&TAB==='overview')mountOverview(); }
+function histCSV(){
+  const rows=histRows();const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const head=['Name','Species','Intake type','Intake date','Intake time','How it came in','Where','Latitude','Longitude','Brought by','Phone','Email','Their address','Notes'];
+  const out=[head.map(q).join(',')].concat(rows.map(a=>{const d=a.drop||{},w=d.who||{};return [a.name,sp(a.species).name,a.surrender,a.intakeDate,a.intakeTime||'',d.how||'',d.place||'',d.lat??'',d.lng??'',w.name||'',w.phone||'',w.email||'',w.address||'',d.note||''].map(q).join(',');}));
+  const b=new Blob([out.join('\r\n')],{type:'text/csv'});const u=URL.createObjectURL(b);const l=document.createElement('a');l.href=u;l.download='intake-history.csv';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);
+}
+function dropSheet(a){
+  const d=dropOf(a),w=d.who||{};if(!(d.how||d.place||d.lat!=null||w.name||w.phone||d.note))return '';
+  return `<h2>How it came in</h2><div class="kv"><div>How</div><div>${esc(d.how)||'—'}</div><div>Where</div><div>${esc(d.place)||'—'}${d.lat!=null?' <span class="small">('+d.lat+', '+d.lng+')</span>':''}</div><div>Brought by</div><div>${[w.name,w.phone,w.email,w.address].filter(Boolean).map(esc).join(' · ')||'—'}</div>${d.note?'<div>Notes</div><div>'+esc(d.note)+'</div>':''}</div>`;
+}
+
+/* ================= ADOPTIONS & OUTCOMES ================= */
+const ADOPT_TASKS=[['paperwork','Paperwork signed'],['fee','Fee collected'],['chip','Microchip registered'],['altered','Spay/neuter agreement'],['follow','2-week follow-up call']];
+let HTAB='intakes',ADF='all',ADOPTF=null;
+function renderHistory(){
+  const tabs=`<div class="tabs" style="margin-bottom:12px"><button class="tab ${HTAB==='intakes'?'active':''}" onclick="HTAB='intakes';render()">📍 Intakes &amp; map</button><button class="tab ${HTAB==='out'?'active':''}" onclick="HTAB='out';render()">🏡 Adoptions &amp; outcomes</button></div>`;
+  return HTAB==='out'?renderOutcomes(tabs):renderIntakesTab(tabs);
+}
+const monthKey=iso=>iso?iso.slice(0,7):'';
+function lastMonths(n){const out=[];const d=new Date();d.setDate(1);for(let i=n-1;i>=0;i--){const x=new Date(d.getFullYear(),d.getMonth()-i,1);out.push({k:x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0'),m:x.toLocaleDateString(undefined,{month:'short'}),y:x.getFullYear(),jan:x.getMonth()===0});}return out;}
+function adoptChart(){
+  const narrow=window.innerWidth<700,ms=lastMonths(narrow?6:12);
+  const inn=ms.map(m=>DB.animals.filter(a=>monthKey(a.intakeDate)===m.k).length);
+  const ado=ms.map(m=>DB.animals.filter(a=>a.outcome==='Adopted'&&monthKey(a.outcomeDate)===m.k).length);
+  const mx=Math.max(4,...inn,...ado);const top=Math.ceil(mx/4)*4;
+  const W=narrow?380:640,H=250,L=34,R=10,T=18,B=40,pw=W-L-R,ph=H-T-B,slot=pw/ms.length,bw=Math.min(18,slot/2-3);
+  const y=v=>T+ph-(v/top)*ph;
+  let g='';
+  for(let i=0;i<=4;i++){const v=top/4*i;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#dfe6e0" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#667">${v}</text>`;}
+  ms.forEach((m,i)=>{
+    const cx=L+slot*i+slot/2;
+    [[inn[i],'#9db8d6',-bw-1],[ado[i],'#2f7d5b',1]].forEach(([v,c,dx])=>{
+      if(v>0)g+=`<rect x="${cx+dx}" y="${y(v)}" width="${bw}" height="${y(0)-y(v)}" rx="3" fill="${c}"/><text x="${cx+dx+bw/2}" y="${y(v)-4}" text-anchor="middle" font-size="11" fill="#334">${v}</text>`;});
+    g+=`<text x="${cx}" y="${H-22}" text-anchor="middle" font-size="12" fill="#334">${m.m}</text>`;
+    if(i===0||m.jan)g+=`<text x="${cx}" y="${H-8}" text-anchor="middle" font-size="10" fill="#889">${m.y}</text>`;
+  });
+  return `<div class="chartwrap" id="adoptChartWrap"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly intakes and adoptions">${g}</svg></div>
+   <div class="legend"><span><i style="background:#9db8d6"></i>Came in</span><span><i style="background:#2f7d5b"></i>Adopted</span><span>Last ${ms.length} months</span></div>`;
+}
+function adoptStats(){
+  const all=DB.animals,yr=String(new Date().getFullYear()),t=todayStr(),d30=addDays(t,-30);
+  const ad=all.filter(a=>a.outcome==='Adopted');
+  const days=ad.filter(a=>a.intakeDate&&a.outcomeDate).map(a=>daysBetween(a.intakeDate,a.outcomeDate));
+  const avg=days.length?Math.round(days.reduce((x,y)=>x+y,0)/days.length):null;
+  const due=ad.filter(a=>adoptFollowDue(a)).length;
+  return [[all.filter(a=>!a.outcome).length,'In care now',''],[ad.filter(a=>(a.outcomeDate||'').startsWith(yr)).length,'Adopted this year',''],[ad.filter(a=>(a.outcomeDate||'')>=d30).length,'Adopted, last 30 days',''],[avg===null?'—':avg,'Avg days to adoption',''],[due,'Follow-ups due',due?'warn':'']];
+}
+function adoptFollowDue(a){if(a.outcome!=='Adopted'||!a.outcomeDate)return false;const t=(a.adopt||{}).tasks||{};return !t.follow&&todayStr()>=addDays(a.outcomeDate,14);}
+function adoptDone(a){const t=((a.adopt||{}).tasks)||{};return ADOPT_TASKS.filter(k=>t[k[0]]).length;}
+function outcomeCounts(){const m={};DB.animals.filter(a=>a.outcome).forEach(a=>m[a.outcome]=(m[a.outcome]||0)+1);return m;}
+function adoptRow(a,full){
+  const ad=a.adopt||{},w=ad.who||{},t=ad.tasks||{},n=adoptDone(a),fd=adoptFollowDue(a);
+  return `<div class="adrow"><div class="row" style="justify-content:space-between;flex-wrap:nowrap;align-items:flex-start"><div style="min-width:0"><div class="hn" style="font-weight:700">${sp(a.species).icon} ${esc(a.name)} ${fd?'<span class="tag" style="background:#fdebdc;color:#b4531b">Follow-up due</span>':''}</div>
+    <div class="sub">Adopted ${nice(a.outcomeDate)} · ${a.intakeDate&&a.outcomeDate?daysBetween(a.intakeDate,a.outcomeDate)+' days in care':''}</div>
+    <div>${w.name?'👤 '+esc(w.name):'<span class="sub">No adopter details yet</span>'}${w.phone?' · '+telLink(w.phone):''}</div>${w.email?`<div class="sub">${esc(w.email)}</div>`:''}${ad.fee!==''&&ad.fee!=null?`<div class="sub">Fee: $${esc(ad.fee)}</div>`:''}${ad.note?`<div class="sub" style="white-space:pre-wrap">${esc(ad.note)}</div>`:''}</div>
+    <div style="text-align:right;flex:none"><b>${n}/${ADOPT_TASKS.length}</b><div class="sub">done</div></div></div>
+   <div class="prog"><i style="width:${n/ADOPT_TASKS.length*100}%"></i></div>
+   <div class="tk">${ADOPT_TASKS.map(k=>`<button class="tkb ${t[k[0]]?'on':''}" onclick="adoptTask('${a.id}','${k[0]}',${t[k[0]]?'false':'true'})">${t[k[0]]?'✓ ':''}${k[1]}${t[k[0]]?' · '+niceShort(t[k[0]]):''}</button>`).join('')}</div>
+   <div class="row" style="margin-top:10px"><button class="btn sm" onclick="openAdopt('${a.id}')">Edit adopter details</button>${full?'':`<button class="btn sm" onclick="openAnimal('${a.id}')">Open record</button>`}</div></div>`;
+}
+function renderOutcomes(tabs){
+  const st=adoptStats(),oc=outcomeCounts();
+  let ad=DB.animals.filter(a=>a.outcome==='Adopted').sort((x,y)=>(y.outcomeDate||'').localeCompare(x.outcomeDate||''));
+  const nAll=ad.length;
+  if(ADF==='due')ad=ad.filter(adoptFollowDue);else if(ADF==='open')ad=ad.filter(a=>adoptDone(a)<ADOPT_TASKS.length);else if(ADF==='done')ad=ad.filter(a=>adoptDone(a)===ADOPT_TASKS.length);
+  const others=Object.entries(oc).filter(([k])=>k!=='Adopted');
+  return `<div class="topbar"><div><h1>History</h1><div class="sub">Adoptions and where animals went</div></div></div>${tabs}
+  <div class="stats">${st.map(x=>`<div class="st ${x[2]}"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div>
+  <div class="card"><h3 style="margin:0 0 8px">Came in vs adopted</h3>${adoptChart()}
+   ${others.length?`<div class="sub" style="margin-top:6px">Other outcomes: ${others.map(([k,v])=>`${esc(k)} ${v}`).join(' · ')}</div>`:''}</div>
+  <h3 style="margin:18px 2px 4px">Adoption tracker</h3>
+  <div class="chips">${[['all','All ('+nAll+')'],['due','Follow-up due'],['open','Not finished'],['done','Complete']].map(c=>`<button class="chip ${ADF===c[0]?'on':''}" onclick="ADF='${c[0]}';render()">${c[1]}</button>`).join('')}</div>
+  ${ad.length?ad.map(a=>adoptRow(a,false)).join(''):`<div class="card" style="margin-top:10px"><div class="sub">${nAll?'Nothing matches that filter.':'No adoptions yet. When you set an animal’s status to Adopted, it appears here with its paperwork checklist.'}</div></div>`}`;
+}
+function adoptTask(id,k,on){const a=DB.animals.find(x=>x.id===id);if(!a)return;a.adopt=a.adopt||{who:{},fee:'',note:'',tasks:{}};a.adopt.tasks=a.adopt.tasks||{};a.adopt.tasks[k]=on?todayStr():null;a.updatedAt=Date.now();render();}
+function openAdopt(id){
+  const a=DB.animals.find(x=>x.id===id);if(!a)return;
+  ADOPTF=JSON.parse(JSON.stringify(a.adopt||{who:{},fee:'',note:'',tasks:{}}));ADOPTF.who=ADOPTF.who||{};ADOPTF.id=id;ADOPTF.date=a.outcomeDate||todayStr();
+  const w=ADOPTF.who;
+  showModal(`<h2 style="margin:0 0 4px">Adoption details</h2><div class="sub" style="margin-bottom:12px">${esc(a.name)}</div>
+   <label class="f">Adoption date</label><input class="in" type="date" value="${ADOPTF.date}" onchange="ADOPTF.date=this.value">
+   <label class="f" style="margin-top:10px">Adopter</label>
+   <div class="grid cols-2"><input class="in" placeholder="Name" value="${esc(w.name||'')}" oninput="ADOPTF.who.name=this.value" autocomplete="off"><input class="in" type="tel" placeholder="Phone" value="${esc(w.phone||'')}" oninput="ADOPTF.who.phone=this.value" autocomplete="off"><input class="in" type="email" placeholder="Email" value="${esc(w.email||'')}" oninput="ADOPTF.who.email=this.value" autocomplete="off"><input class="in" placeholder="Address" value="${esc(w.address||'')}" oninput="ADOPTF.who.address=this.value" autocomplete="off"></div>
+   <label class="f" style="margin-top:10px">Adoption fee ($)</label><input class="in" type="number" inputmode="decimal" min="0" step="0.01" style="max-width:180px" value="${esc(ADOPTF.fee??'')}" oninput="ADOPTF.fee=this.value">
+   <label class="f" style="margin-top:10px">Notes</label><textarea class="in" oninput="ADOPTF.note=this.value" placeholder="Home situation, other pets, conditions of the adoption…">${esc(ADOPTF.note||'')}</textarea>
+   <div class="row mfoot" style="justify-content:flex-end;margin-top:14px"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveAdopt()">Save</button></div>`);
+}
+function saveAdopt(){
+  const a=DB.animals.find(x=>x.id===ADOPTF.id);if(!a)return;
+  a.adopt={who:ADOPTF.who,fee:ADOPTF.fee,note:ADOPTF.note,tasks:ADOPTF.tasks||{}};
+  if(ADOPTF.date)a.outcomeDate=ADOPTF.date;a.updatedAt=Date.now();closeModal();render();toast('Adoption saved');
+}
+function adoptCard(a){
+  if(a.outcome!=='Adopted')return '';
+  return `<div class="card" style="margin-top:16px"><h3 style="margin:0 0 4px">🏡 Adoption</h3>${adoptRow(a,true).replace('class="adrow"','style="margin:0"')}</div>`;
+}
+tabOverview=function(a){return _tabOverview0(a)+dropCard(a)+adoptCard(a);};
+
 /* ================= SHARED SYNC (optional, offline-first) ================= */
 const SYNC_DEFAULT={url:'https://rerrsetgnrbyaljnfpws.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJlcnJzZXRnbnJieWFsam5mcHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyNTc3NDQsImV4cCI6MjEwNjgzMzc0NH0.WyTab9P6iKf9ESbnBzNLzlh3sBXWwkmBgPIoYFM1K18'};
 const SKEY='patr_sync_v1';
