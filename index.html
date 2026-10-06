@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f7d5b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PATR Intake">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAD9ElEQVR42u3dQXLbMAxA0ZTj+7T3aa/SLnqWHqhH6iKbTJy4si2CAPj+MhkTIvkFSbQIf/n68/sL8BHDEIAcIAfIAXKAHCAHyAFygBwgB0AOkAPkADlADpAD5AA5QA6QAyAHyAFygBwgB8gBcoAcIAfIAZAD5MD9XBr37e/vP9d//PbrR6eIU/nSr+zThzM0dc7iI5Jj1iSdOGHxEd1zBM3Tw59aFZEcL+3nuIofY3MzHmshPiI5Vo7y8XbiI5Jj/fgeaS0+IjmyjOztNuMjkiPXmH7WcnxEcsBlpdSpdt1+fERyQOYAOXpcU66jxEckB2QOkKPTNeVtrPiI5IDMAXKAHCAHQA6QA+QAOUAOkONOIreLvcaKj0gOyBwgR78ry9so8RGTsKw+R7NSFi1H7JKhh9f/ZUmGEYurz3FuKYup78V8GLdExHMVGWnNeClVyqLliI20/bz92XnXnc9ajoyYpPjHyGxGvB+324yJmKf4x0huRqQfR1qbHTFV8Y+R34wYP463My9ituIfo4QZs/24t4UZERMW/2iyfP7MbD322fiI8YwqaeO/LVeZ4+BFlGdablXe+nXcI+sJx0eM5PwV0oCVq4OjXKX2eZ4R65w5lp+pzb4S8j4HyIHlcmxbBKfliMkcIAfIAXKAHFjKZefOd132JkfcE927T+3jyoUTD7fW3pLtvnhbeDz5R2yLzBG8hPoarl8iudCCIls8ymb4zqXT9z5TtkM226sYcJmPH7FdMkfOk7VBCpm1kXrS0Lw7CUpMwNpnq2fugfyurOMMl2P2ttJaI37kaOO3/q7MHPO2lVY8F+P9eL61uZeVGdtK62bpSD9OaWf6Pce520qrPwLE+HGWYRE3pDtsK205YiNzbys+uJ718BK/9TduneP0oWlWH+z4LC58Iylajtt9/qyHLSvH3Tud/euQbn4zUWvECqyQdi04mb9f3j5HWTl616lN3juZAzXl2KG8deY+yhwgBzrJsc9PJqTtqcwBcoAc6C/Hbr/RlLO/MgfIAXKAHCAHyAFygBwgB8gBciRjt40LOfsrc4AcIAe2kGOf2460PZU5QA40k2OHK0vmPsocKCtH7+SRvHcyByrL0TV55O+XzIHicvRLHiV6NIymvnS4rPTwo1Av3HOgixzVk0et4x/G15G3uqxU9KPiMQ9noaNteENaZcTrXgeX/WrCiaSt9FL99rnDo2zOOWiwKtMhc2RLIW0Wc1stgmWYlU7L/K0yx9oU0u/bwZ5yBCvS9Y2TznLMtqT9+89byHGuJfvsttpLjsdc2fa3CreWAxs9yoIcIAfIAXKAHCAHyAFyAOQAOUAOkAPkADlADpAD5MCW/AMPJNCqTkyLzAAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAD9ElEQVR42u3dQXLbMAxA0ZTj+7T3aa/SLnqWHqhH6iKbTJy4si2CAPj+MhkTIvkFSbQIf/n68/sL8BHDEIAcIAfIAXKAHCAHyAFygBwgB0AOkAPkADlADpAD5AA5QA6QAyAHyAFygBwgB8gBcoAcIAfIAZAD5MD9XBr37e/vP9d//PbrR6eIU/nSr+zThzM0dc7iI5Jj1iSdOGHxEd1zBM3Tw59aFZEcL+3nuIofY3MzHmshPiI5Vo7y8XbiI5Jj/fgeaS0+IjmyjOztNuMjkiPXmH7WcnxEcsBlpdSpdt1+fERyQOYAOXpcU66jxEckB2QOkKPTNeVtrPiI5IDMAXKAHCAHQA6QA+QAOUAOkONOIreLvcaKj0gOyBwgR78ry9so8RGTsKw+R7NSFi1H7JKhh9f/ZUmGEYurz3FuKYup78V8GLdExHMVGWnNeClVyqLliI20/bz92XnXnc9ajoyYpPjHyGxGvB+324yJmKf4x0huRqQfR1qbHTFV8Y+R34wYP463My9ituIfo4QZs/24t4UZERMW/2iyfP7MbD322fiI8YwqaeO/LVeZ4+BFlGdablXe+nXcI+sJx0eM5PwV0oCVq4OjXKX2eZ4R65w5lp+pzb4S8j4HyIHlcmxbBKfliMkcIAfIAXKAHFjKZefOd132JkfcE927T+3jyoUTD7fW3pLtvnhbeDz5R2yLzBG8hPoarl8iudCCIls8ymb4zqXT9z5TtkM226sYcJmPH7FdMkfOk7VBCpm1kXrS0Lw7CUpMwNpnq2fugfyurOMMl2P2ttJaI37kaOO3/q7MHPO2lVY8F+P9eL61uZeVGdtK62bpSD9OaWf6Pce520qrPwLE+HGWYRE3pDtsK205YiNzbys+uJ718BK/9TduneP0oWlWH+z4LC58Iylajtt9/qyHLSvH3Tud/euQbn4zUWvECqyQdi04mb9f3j5HWTl616lN3juZAzXl2KG8deY+yhwgBzrJsc9PJqTtqcwBcoAc6C/Hbr/RlLO/MgfIAXKAHCAHyAFygBwgB8gBciRjt40LOfsrc4AcIAe2kGOf2460PZU5QA40k2OHK0vmPsocKCtH7+SRvHcyByrL0TV55O+XzIHicvRLHiV6NIymvnS4rPTwo1Av3HOgixzVk0et4x/G15G3uqxU9KPiMQ9noaNteENaZcTrXgeX/WrCiaSt9FL99rnDo2zOOWiwKtMhc2RLIW0Wc1stgmWYlU7L/K0yx9oU0u/bwZ5yBCvS9Y2TznLMtqT9+89byHGuJfvsttpLjsdc2fa3CreWAxs9yoIcIAfIAXKAHCAHyAFyAOQAOUAOkAPkADlADpAD5MCW/AMPJNCqTkyLzAAAAABJRU5ErkJggg==">
+<title>Paws Along the River — Intake</title>
+<style>
+:root{
+  --bg:#f4f6f3; --card:#ffffff; --ink:#1f2a24; --muted:#66736c; --line:#e3e8e4;
+  --brand:#2f7d5b; --brand-ink:#ffffff; --brand-soft:#e6f3ec;
+  --warn:#b4651a; --warn-soft:#fdf1e4; --danger:#b23b3b; --danger-soft:#fbe9e9;
+  --info:#2c6fae; --info-soft:#e7f0fa; --radius:14px; --shadow:0 1px 2px rgba(20,30,25,.06),0 6px 20px rgba(20,30,25,.05);
+}
+*{box-sizing:border-box}
+*{-webkit-tap-highlight-color:transparent}
+button,.chip,.tab,.acard,.check,select,input[type=checkbox]{touch-action:manipulation}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--brand)}
+.app{display:flex;min-height:100vh}
+nav.side{width:230px;background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:6px}
+.logo{display:flex;align-items:center;gap:10px;padding:6px 8px 16px}
+.logo .paw{width:38px;height:38px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:20px}
+.logo b{display:block;font-size:14px;line-height:1.15}
+.logo small{color:var(--muted);font-size:12px}
+.navbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:transparent;padding:10px 12px;border-radius:10px;cursor:pointer;color:var(--ink)}
+.navbtn:hover{background:#f1f5f2}
+.navbtn.active{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.navbtn .ic{width:20px;text-align:center}
+.side .spacer{flex:1}
+.side .foot{font-size:12px;color:var(--muted);padding:8px 12px}
+main{flex:1;min-width:0;padding:26px 32px;max-width:1240px}
+html,body{overflow-x:hidden;max-width:100vw}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+h1{font-size:24px;margin:0;letter-spacing:-.01em}
+h2{font-size:17px;margin:0 0 10px}
+h3{font-size:14px;margin:0 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.sub{color:var(--muted);font-size:13px}
+.btn{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn:hover{background:#f6f8f6}
+.btn.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.btn.primary:hover{background:#286c4e}
+.btn.danger{color:var(--danger);border-color:#efc9c9}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.grid{display:grid;gap:14px}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+
+label.f{display:block;font-size:13px;color:var(--muted);margin-bottom:4px;font-weight:500}
+.in,select.in,textarea.in{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 11px;outline:none}
+.in:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+textarea.in{min-height:80px;resize:vertical}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:14px}
+.chip.big{padding:12px 20px;font-size:16px}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;background:#eef1ee;color:#4a5750}
+.tag.stray{background:var(--warn-soft);color:var(--warn)}
+.tag.owner{background:var(--info-soft);color:var(--info)}
+.tag.locked{background:var(--danger-soft);color:var(--danger)}
+.tag.ok{background:var(--brand-soft);color:var(--brand)}
+.tag.due{background:var(--warn-soft);color:var(--warn)}
+.tag.overdue{background:var(--danger-soft);color:var(--danger)}
+.animals{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.acard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;cursor:pointer;display:flex;gap:14px;box-shadow:var(--shadow);transition:transform .08s,border-color .08s}
+.acard:hover{transform:translateY(-1px);border-color:#c9d6cd}
+.avatar{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:var(--brand-soft);flex:none}
+.avatar.cat{background:#f7eddc}.avatar.other{background:#e9e9f5}
+.acard .nm{font-weight:700;font-size:17px;letter-spacing:-.01em}
+.acard .meta{color:var(--muted);font-size:13px;margin-top:2px}
+.acard .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--muted);padding:50px 20px}
+.empty .big{font-size:44px;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tab{border:0;background:transparent;padding:10px 14px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab.active{color:var(--brand);border-bottom-color:var(--brand);font-weight:600}
+.banner{padding:12px 14px;border-radius:12px;display:block;font-size:14px;line-height:1.5}
+.banner.lock{background:var(--danger-soft);color:#7d2a2a;border:1px solid #f0cfcf}
+.banner.info{background:var(--info-soft);color:#1f4f7d}
+.banner.ok{background:var(--brand-soft);color:#235e45}
+.hero{display:flex;gap:18px;align-items:center}
+.hero .avatar{width:80px;height:80px;font-size:40px;border-radius:22px}
+.hero .nm{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;font-size:14px}
+.kv div:nth-child(odd){color:var(--muted)}
+.check{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;border:1px solid var(--line);margin-bottom:6px;cursor:pointer;background:#fff}
+.check.done{background:var(--brand-soft);border-color:#cfe6d9}
+.check input{width:18px;height:18px;accent-color:var(--brand)}
+.check .when{margin-left:auto;font-size:12px;color:var(--muted)}
+.modal-bg{position:fixed;inset:0;background:rgba(20,30,25,.45);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;z-index:50}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:18px;width:100%;max-width:760px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.modal h2{font-size:20px;margin-bottom:14px}
+.mhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.x{border:0;background:#f1f5f2;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal .dow{font-size:12px;color:var(--muted);text-align:center;font-weight:600;padding:4px}
+.day{user-select:none;min-width:0;overflow:hidden;min-height:96px;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff;font-size:12px}
+.day.off{background:#f8faf8;color:#aab5ae}
+.day.today{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-soft)}
+.day .n{font-weight:700;margin-bottom:4px;display:inline-block;padding:0 5px;border-radius:6px}.day .n:hover{background:var(--brand-soft);color:var(--brand)}
+.ev{display:block;padding:2px 6px;border-radius:6px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;font-size:11.5px}
+.day .ev{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.25}
+.ev.med{background:var(--info-soft);color:var(--info)}
+.ev.vax{background:#efe6f8;color:#6a3fa5}
+.ev.intake{background:var(--brand-soft);color:var(--brand)}
+.ev.hold{background:var(--danger-soft);color:var(--danger)}
+.ev.first{font-weight:700;border-left:3px solid currentColor}
+.ev.done{opacity:.5;text-decoration:line-through}
+.dose{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;background:#fff}
+.dose.given{background:var(--brand-soft);border-color:#cfe6d9}
+.dose .d{font-weight:600;min-width:150px}
+.dose .amt{font-size:18px;font-weight:800;color:var(--brand);min-width:90px}
+.dose .lbl{color:var(--muted);font-size:13px;flex:1}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.stat .v{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.stat .l{color:var(--muted);font-size:13px}
+.list-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.list-item:last-child{border-bottom:0}
+.hint{font-size:12.5px;color:var(--muted);margin-top:4px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#1f2a24;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:99}
+.toast.show{opacity:1}
+.ageSeg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ageSeg button{flex:1;border:0;background:#fff;padding:9px;cursor:pointer}
+.ageSeg button.on{background:var(--brand);color:#fff}
+.section{margin-bottom:22px}
+.settings-row{display:grid;grid-template-columns:1fr 1fr 110px 110px auto;gap:8px;align-items:center;margin-bottom:6px}
+.cal-list{display:none}
+/* ---------- mobile ---------- */
+nav.bottom{display:none}
+.t-short,.filt-toggle,.only-m{display:none}
+.camBadge{position:absolute;right:-6px;bottom:-6px;width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:var(--brand);color:#fff;font-size:14px;display:grid;place-items:center;padding:0;cursor:pointer;line-height:1}
+.ph{display:grid;place-items:center}
+.quick{margin-top:10px}
+.fmore{margin-top:10px}
+.cal-day{padding:10px 0;border-bottom:1px solid var(--line)}
+.cal-day:last-child{border-bottom:0}
+.cal-day .cd{font-weight:700;margin-bottom:6px}
+.cal-day .ev{white-space:normal;display:block;padding:6px 8px;font-size:13px}
+body.modal-open{overflow:hidden}
+@media screen and (max-width:900px){
+  /* layout */
+  .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+  .grid.cols-4{grid-template-columns:1fr 1fr}
+  nav.side{display:none}
+  main{padding:12px 14px calc(92px + env(safe-area-inset-bottom))}
+  nav.bottom{display:flex;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);z-index:40;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  nav.bottom button{flex:1;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);padding:6px 2px;border-radius:10px;min-height:52px}
+  nav.bottom button .ic{font-size:22px}
+  nav.bottom button.active{color:var(--brand);font-weight:600;background:var(--brand-soft)}
+  h1{font-size:22px}
+  .topbar{margin-bottom:12px;gap:10px}
+  .hide-m{display:none!important}
+  .only-m{display:inline-flex}
+  /* tap targets + iOS zoom guard */
+  .in,select.in{padding:12px;font-size:16px;min-height:46px}
+  .btn{padding:11px 14px;min-height:44px;justify-content:center}
+  .btn.sm{min-height:38px;padding:8px 12px}
+  .chip{padding:10px 14px;min-height:42px}
+  .check{padding:13px 12px}
+  input[type=checkbox]{min-width:22px;min-height:22px}
+  .dose input[type=checkbox]{width:26px!important;height:26px!important}
+  .modal .chips .chip.big{padding:10px 16px;font-size:15px}
+  /* animals list */
+  .animals{grid-template-columns:1fr;gap:10px}
+  .acard{padding:12px;gap:12px}
+  .filt-toggle{display:inline-flex}
+  .fmore{display:none}
+  .fmore.open{display:block}
+  .fcard{padding:12px;position:sticky;top:0;z-index:6}
+  .fmore .row{flex-direction:column;align-items:stretch}
+  .fmore .row .in{width:100%!important;min-width:0!important}
+  /* animal page */
+  .animal-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .animal-top .acts{display:contents}
+  .animal-top .back{order:1;flex:1 1 55%}
+  .animal-top .a-done{order:2;flex:1 1 35%}
+  .animal-top .a-edit,.animal-top .a-print,.animal-top .a-del{order:3;flex:1 1 30%;min-width:0;padding-left:6px;padding-right:6px}
+  .animal-top .tag.locked{order:4;flex-basis:100%;white-space:normal}
+  .hero{gap:12px;align-items:flex-start}
+  .hero .avatar{width:68px!important;height:68px!important;font-size:34px}
+  .hero .nm{font-size:24px}
+  .hero{flex-wrap:wrap}
+  .hero > div:nth-child(2){flex:1 1 0;min-width:0}
+  .hero > div:last-child{text-align:left;width:100%;flex-basis:100%}
+  .hero > div:last-child .in{max-width:none}
+  .tabs{position:sticky;top:0;z-index:8;background:var(--bg);margin:0 -14px 14px;padding:0 14px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .tab{padding:13px 14px;scroll-snap-align:center;min-height:46px}
+  .t-full{display:none}.t-short{display:inline}
+  .kv{grid-template-columns:105px 1fr}
+  /* doses / schedule */
+  .dose{flex-wrap:wrap;padding:12px;gap:8px 12px}
+  .dose .d{min-width:0;flex:1}
+  .dose .amt{min-width:0}
+  .dose .lbl{flex-basis:100%;padding-left:38px}
+  /* calendar */
+  .cal{display:none}
+  .cal-list{display:block}
+  .stat .v{font-size:26px}
+  .cfmore{display:none}
+  .cfmore.open{display:block}
+  .cfmore .row{flex-direction:column;align-items:stretch}
+  .cfmore .row .in{width:100%!important}
+  /* settings */
+  .settings-row{grid-template-columns:1fr}
+  .srow{flex-wrap:wrap;gap:8px}
+  .srow > input.in:first-child{flex:1 1 100%!important;width:100%!important}
+  .srow .in{min-width:0}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* full-screen forms with a pinned action bar */
+  .modal-bg{padding:0;align-items:stretch}
+  .modal{border-radius:0;max-width:100vw;min-height:100vh;padding:16px 16px 0;overflow-x:hidden}
+  .mfoot{position:sticky;bottom:0;background:#fff;margin:14px -16px 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);z-index:3;flex-wrap:nowrap}
+  .mfoot .btn{flex:1}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom));max-width:90vw;text-align:center}
+}
+
+#syncChip{position:fixed;left:12px;bottom:12px;z-index:45;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+#syncChip b{font-weight:600}
+#syncChip.sy-ok b{color:var(--brand)}#syncChip.sy-err{border-color:#e0a0a0}#syncChip.sy-off b{color:var(--muted)}
+#syGate{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;padding:16px;overflow:auto}
+#syGate .gbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;max-width:380px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+#syGate .paw{font-size:34px}#syGate h2{margin:6px 0 4px}
+body.gate-open main,body.gate-open nav{filter:blur(6px);pointer-events:none}
+@media screen and (max-width:900px){#syncChip{left:auto;right:10px;top:auto;bottom:calc(84px + env(safe-area-inset-bottom));padding:4px 8px;opacity:.9}#syncChip b{display:none}}
+#sheet{display:none}
+@media print{
+  @page{margin:0.6in}
+  html,body{background:#fff!important}
+  .app,nav.bottom,.modal-bg,.toast{display:none!important}
+  #sheet{display:block;color:#000;font-size:12.5px;line-height:1.4}
+  #sheet h1{font-size:22px;margin:0 0 2px}
+  #sheet h2{font-size:14px;margin:18px 0 6px;padding-bottom:3px;border-bottom:1.5px solid #000;text-transform:uppercase;letter-spacing:.05em}
+  #sheet .hd{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #000;padding-bottom:8px}
+  #sheet .hd .org{text-align:right;font-size:11px;color:#333}
+  #sheet .kv{display:grid;grid-template-columns:130px 1fr 130px 1fr;gap:4px 10px}
+  #sheet .kv div:nth-child(odd){color:#444}
+  #sheet table{width:100%;border-collapse:collapse;font-size:12px}
+  #sheet th,#sheet td{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}
+  #sheet th{background:#eee;font-size:11px;text-transform:uppercase}
+  #sheet .box{display:inline-block;width:11px;height:11px;border:1.5px solid #000;vertical-align:middle;margin-right:5px;text-align:center;line-height:9px;font-size:10px}
+  #sheet .box.x::after{content:'✓'}
+  #sheet .cols{columns:2;column-gap:24px}
+  #sheet .cols label{display:block;break-inside:avoid;padding:2px 0}
+  #sheet .alert{border:2px solid #000;padding:6px 10px;margin-top:8px;font-weight:700}
+  #sheet .sig{display:flex;gap:30px;margin-top:26px}
+  #sheet .sig div{flex:1;border-top:1px solid #000;padding-top:4px;font-size:11px;color:#444}
+  #sheet .small{font-size:11px;color:#444}
+  #sheet .pg{break-before:page}
+  #sheet tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="side">
+    <div class="logo"><div class="paw">🐾</div><div><b id="shelterName">Paws Along the River</b><small>Intake &amp; Care</small></div></div>
+    <button class="navbtn active" data-view="animals"><span class="ic">🐶</span>Animals</button>
+    <button class="navbtn" data-view="today"><span class="ic">📋</span>Today</button>
+    <button class="navbtn" data-view="calendar"><span class="ic">📅</span>Calendar</button>
+    <button class="navbtn" data-view="settings"><span class="ic">⚙️</span>Settings</button>
+    <div class="spacer"></div>
+    <button class="navbtn" onclick="exportData()"><span class="ic">💾</span>Backup / Export</button>
+    <button class="navbtn" onclick="document.getElementById('importFile').click()"><span class="ic">📂</span>Import / Merge</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
+    <div class="foot">Works offline. Data is saved in this browser on this computer. Use Backup to share with others.</div>
+  </nav>
+  <main id="main"></main>
+</div>
+<nav class="bottom">
+  <button class="navbtn active" data-view="animals"><span class="ic">🐶</span>Animals</button>
+  <button class="navbtn" data-view="today"><span class="ic">📋</span>Today</button>
+  <button class="navbtn" data-view="calendar"><span class="ic">📅</span>Calendar</button>
+  <button class="navbtn" data-view="settings"><span class="ic">⚙️</span>Settings</button>
+  <button class="navbtn" onclick="openIntake()"><span class="ic">＋</span>Intake</button>
+</nav>
+
+<div id="sheet"></div>
+<div class="modal-bg" id="modal"><div class="modal" id="modalBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========================= DATA ========================= */
+const KEY='patr_intake_v1';
+const SPECIES=[
+  {id:'dog',name:'Dog',icon:'🐶',main:true,young:'Puppy'},
+  {id:'cat',name:'Cat',icon:'🐱',main:true,young:'Kitten'},
+  {id:'rabbit',name:'Rabbit',icon:'🐰',young:'Kit'},
+  {id:'guinea',name:'Guinea Pig',icon:'🐹',young:'Pup'},
+  {id:'ferret',name:'Ferret',icon:'🦦',young:'Kit'},
+  {id:'hamster',name:'Hamster / Gerbil',icon:'🐹',young:'Pup'},
+  {id:'bird',name:'Bird',icon:'🐦',young:'Chick'},
+  {id:'reptile',name:'Reptile',icon:'🦎',young:'Hatchling'},
+  {id:'other',name:'Other',icon:'🐾',young:'Young'}
+];
+const STAGES=[
+  {id:'baby',label:'Puppy / Kitten',hint:'3 months or younger'},
+  {id:'juvenile',label:'Juvenile',hint:'3 – 12 months'},
+  {id:'adult',label:'Adult',hint:'1 – 7 years'},
+  {id:'senior',label:'Senior',hint:'7+ years'}
+];
+const INTAKE_CHECKLIST=['Photo taken','Scanned for microchip','Weighed','Temperature / basic exam','Checked for fleas & ticks','Checked for injuries / wounds','Body condition noted','Behavior observed','Intake paperwork completed','Kennel / cage assigned','Vaccines reviewed','Dewormer started'];
+
+function defaultSettings(){
+  return {
+    shelterName:'Paws Along the River',
+    // Vaccines per species. PLACEHOLDER lists — edit in Settings to match what the shelter actually gives.
+    vaccines:{
+      dog:[{name:'DHPP',interval:365},{name:'Bordetella',interval:365},{name:'Rabies',interval:365}],
+      cat:[{name:'FVRCP',interval:365},{name:'Rabies',interval:365}],
+      rabbit:[{name:'RHDV2',interval:365}],
+      ferret:[{name:'Rabies',interval:365},{name:'Canine Distemper',interval:365}],
+      guinea:[],hamster:[],bird:[],reptile:[],other:[]
+    },
+    // Vaccine protocols: when to start and how many doses for adults vs. puppies/kittens.
+    // start: stray dogs start after the 48h hold; everyone else on intake. minAgeMonths blocks a vaccine until that age.
+    protocols:{
+      dog:{items:[
+        {name:'DHPP',adult:1,young:3,everyMonths:1},
+        {name:'Bordetella',adult:1,young:2,everyMonths:1},
+        {name:'Rabies',adult:1,young:1,minAgeMonths:3}
+      ]}
+    },
+    // Medications / dewormers with weight-based dosing.
+    // divisor per species: dose = weight ÷ divisor.  plan: list of steps.
+    meds:[
+      {id:'panacur',name:'Panacur',kind:'Dewormer',unit:'mL',
+       divisor:{dog:4,cat:4},
+       species:['dog','cat'],
+       // 4 daily doses, then 3 weeks after last dose a second 4-day course, then 3 months after that last dose a third course
+       plan:[{label:'Course 1',doses:4,everyDays:1},{gap:{days:21},label:'Course 2',doses:4,everyDays:1},{gap:{months:3},label:'Course 3',doses:4,everyDays:1}],
+       notes:'Weight ÷ 4. Once daily for 4 days. Repeat 3 weeks after last dose, then again 3 months after that.'},
+      {id:'anthelban',name:'Anthelban',kind:'Dewormer',unit:'mL',
+       divisor:{dog:10,cat:6},
+       species:['dog','cat'],
+       plan:[{label:'Biweekly series',doses:4,everyDays:14}],
+       notes:'Dog: weight ÷ 10. Cat: weight ÷ 6. Every 2 weeks for 8 weeks (4 doses total).'}
+    ]
+  };
+}
+const SEED_ANIMALS=[{"id":"af897","afId":897,"importId":null,"name":"Buffy","species":"cat","breed":"Domestic Medium Hair","sex":"Female (spayed)","color":"Calico / Dilute Calico","weight":2.4,"ageMode":"exact","ageValue":"1.9","ageUnit":"months","birthday":"2026-08-01","birthdayEst":true,"intakeDate":"2026-09-28","intakeTime":"12:26","surrender":"Stray","size":null,"rabiesTag":"","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6aba9591a2f12d08600c1fd7/images/IMG_5665.jpeg","notes":"Hi my name is buffy! I'm super fluffy and I love to purr and cuddle. I also enjoy playing with my kitty friends. I'm looking for someone to love me and brush my long pretty hair. I know I would do good in a home with anyone, I'm just that sweet.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-09-28","weight":2.4}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000000,"updatedAt":1759700000000},{"id":"af898","afId":898,"importId":null,"name":"Cruella","species":"cat","breed":"Domestic Short Hair","sex":"Female (spayed)","color":"Calico / Dilute Calico","weight":2.5,"ageMode":"exact","ageValue":"1.9","ageUnit":"months","birthday":"2026-08-01","birthdayEst":true,"intakeDate":"2026-09-28","intakeTime":"12:26","surrender":"Stray","size":null,"rabiesTag":"","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6aba95aae86b1b77f508aeea/images/IMG_5670.jpeg","notes":"Hey there! My name is Cruella, don't let my name fool you, I'm as sweet and lovable as can be! I love to play with my sister, I am pretty shy at first, but I warm up pretty fast. If you're looking to add some love to your home, here I am!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-09-28","weight":2.5}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000001,"updatedAt":1759700000001},{"id":"af558","afId":558,"importId":"PATR-A-567","name":"Almond","species":"dog","breed":"Pit Bull Terrier / Mix","sex":"Female (spayed)","color":"Brown","weight":48.8,"ageMode":"exact","ageValue":"2.9","ageUnit":"years","birthday":"2023-10-24","birthdayEst":false,"intakeDate":"2026-09-15","intakeTime":"14:18","surrender":"Owner Surrender","size":"Medium (20-59)","rabiesTag":"1672","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa530f96f2d195750342eb/images/IMG_5091.jpeg","notes":"Meet Almond, a sweet and spirited medium-sized Pit Bull Terrier mix whose personality is as warm as her light chocolate coat. She sports a charming white patch on her chest and adorable white socks—little hints of her irresistible charm. Almond thrives on playtime and enjoys every chance to stretch her legs, chase a toy, or romp around with her favorite humans.\n\nBut behind all that lively energy is a very loving heart. Almond is eager for a family who will match her enthusiasm, appreciate her zest for life, and give her all the affection she's been waiting to share.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-09-15","weight":48.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000002,"updatedAt":1759700000002},{"id":"af873","afId":873,"importId":null,"name":"Ranger","species":"cat","breed":"Domestic Short Hair","sex":"Male","color":"Gray / Blue / Silver / White","weight":6,"ageMode":"exact","ageValue":"4.0","ageUnit":"months","birthday":"2026-04-29","birthdayEst":true,"intakeDate":"2026-08-29","intakeTime":"13:08","surrender":"Stray","size":null,"rabiesTag":"2901","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a930515d683a9bbd00f45eb/images/IMG_5679.jpeg","notes":"Hi there, my name is Ranger and I am oh so so friendly and very talkative, I will always be the first one to greet you whenever you walk into a room. I love attention and to be held all the time, and another plus you won't ever have to come find me because I will always find you first! I will always yell at you if I don't get any attention; or at least not enough!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-08-29","weight":6}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000003,"updatedAt":1759700000003},{"id":"af871","afId":871,"importId":null,"name":"Zooma","species":"cat","breed":"Domestic Short Hair","sex":"Male","color":"White / Tabby (Buff / Tan / Fawn)","weight":18.8,"ageMode":"exact","ageValue":"9.0","ageUnit":"years","birthday":"2017-08-27","birthdayEst":true,"intakeDate":"2026-08-27","intakeTime":"15:30","surrender":"Owner Surrender","size":null,"rabiesTag":"3008","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a9082763af83ba189079eb0/images/IMG_4189.jpeg","notes":"Hey guys and gals, my names Zooma, and I love love and affection from everyone. I'm good with kids and other cats, although I don't play a lot, I don't really care about dogs being around me because I'm as friendly as they come. I may look a little mean, but I promise you that that's just my face. I could use a little bit more exercise because I'm a bit overweight. Declawed cuddle bug.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-08-27","weight":18.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000004,"updatedAt":1759700000004},{"id":"af12","afId":12,"importId":"PATR-A-12","name":"Quilliam","species":"dog","breed":"Black Labrador Retriever / Mix","sex":"Male (neutered)","color":"Black","weight":69.2,"ageMode":"exact","ageValue":"4.3","ageUnit":"years","birthday":"2022-04-09","birthdayEst":false,"intakeDate":"2026-08-06","intakeTime":"13:40","surrender":"Stray","size":null,"rabiesTag":"3483","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa530f96f2d19575033f20/images/IMG_4290.jpeg","notes":"Hi, my name is Quilliam and I am just a lazy guy, although when other pups start singing I can't help but sing with them! I hate taking my medicine, I also get a little nippy whenever you touch my rear end, and sometimes my ears are a little sensitive. I'm slightly overweight so I would greatly appreciate daily walks. I'm okay with other furry friends, but I would just watch the little ones around me, I hurt a lot for a pup.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-08-06","weight":69.2}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000005,"updatedAt":1759700000005},{"id":"af850","afId":850,"importId":null,"name":"Quack","species":"cat","breed":"Domestic Short Hair","sex":"Male","color":"Tabby (Brown / Chocolate)","weight":6,"ageMode":"exact","ageValue":"3.6","ageUnit":"months","birthday":"2026-04-13","birthdayEst":true,"intakeDate":"2026-07-31","intakeTime":"15:27","surrender":"Stray","size":null,"rabiesTag":"3011","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a6ce9654d733bab07008366/images/IMG_5869.jpeg","notes":"Hey ladies and gentleman, my name is Quack! I'm cuter then a button and I can talk a lot! I love to be chased around and played with all the time and I love having other furry friends around my age to play with me. I'm not the biggest cuddle bug, but when the times right I love to tell you that I want attention.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-31","weight":6}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000006,"updatedAt":1759700000006},{"id":"af847","afId":847,"importId":null,"name":"Snowball","species":"cat","breed":"Domestic Short Hair","sex":"Male (neutered)","color":"Black / White","weight":3.74,"ageMode":"exact","ageValue":"3.5","ageUnit":"weeks","birthday":"2026-06-29","birthdayEst":true,"intakeDate":"2026-07-23","intakeTime":"15:36","surrender":"Stray","size":null,"rabiesTag":"200574","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a625fa6bf1b9da9ca0ae3b5/images/IMG_5477.jpg","notes":"Hi, my name is Snowball! They call me Snowball because I'm one crazy kitty—or maybe just because my coat is mostly white. I love playing with other kitties and causing havoc. I'm really hard to catch, but an easy way to catch me is to play with me. I'd probably do best in a home without kids, but hey, we can always give it a try.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-23","weight":3.74}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000007,"updatedAt":1759700000007},{"id":"af845","afId":845,"importId":null,"name":"Madigan","species":"cat","breed":"Tortoiseshell","sex":"Female","color":"Tortoiseshell","weight":4.8,"ageMode":"exact","ageValue":"3.1","ageUnit":"months","birthday":"2026-04-20","birthdayEst":true,"intakeDate":"2026-07-23","intakeTime":"11:54","surrender":"Stray","size":null,"rabiesTag":"3027","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a622b4345b7396a2c0b0f78/images/IMG_5840.jpeg","notes":"I'm Madigan. I might be the biggest kitten in my litter, but I'm definitely the most skittish. I need slow-moving hands, lots of time, and plenty of patience. I'm still a little feral, but I'm coming around more and more every day. I wouldn't do well in a home with young kids, and no dogs, please. If you have another cat, I'd love to meet them.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-23","weight":4.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000008,"updatedAt":1759700000008},{"id":"af844","afId":844,"importId":null,"name":"Mokie","species":"cat","breed":"Domestic Short Hair","sex":"Male","color":"Orange / Red","weight":4.4,"ageMode":"exact","ageValue":"3.8","ageUnit":"months","birthday":"2026-03-28","birthdayEst":true,"intakeDate":"2026-07-23","intakeTime":"11:51","surrender":"Stray","size":null,"rabiesTag":"3024","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a622aab00834345d20b87f9/images/IMG_5910.jpeg","notes":"My name is Mokie or Mokie Smokie! They call me that because I get the zoomies literally all the time, I have constant energy to run and play with my other cat friends, especially my brother Ripple! I love climbing on things and chasing everyone. I'm a super big cuddler and my foster mum likes to call me the noodle because I am perfectly content with however you hold me!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-23","weight":4.4}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000009,"updatedAt":1759700000009},{"id":"af843","afId":843,"importId":null,"name":"Ripple","species":"cat","breed":"Domestic Short Hair","sex":"Male","color":"Orange / Red","weight":4.2,"ageMode":"exact","ageValue":"3.8","ageUnit":"months","birthday":"2026-03-28","birthdayEst":true,"intakeDate":"2026-07-23","intakeTime":"11:48","surrender":"Stray","size":null,"rabiesTag":"3023","altered":"No","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a622a2024fad8bc3f03ea7f/images/IMG_5890.jpeg","notes":"Hi there, my names Ripple, but my nickname is Rip! I'm a very sweet boy who loves to eat, sleep and play with my twin Mokie. I'm a little shy at first, but with some time and patience I can promise you I will be the bestest boy on the planet. My coat's a darker orange and I have bigger eyes than my brother!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-23","weight":4.2}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000010,"updatedAt":1759700000010},{"id":"af842","afId":842,"importId":null,"name":"Sadie","species":"cat","breed":"Dilute Tortoiseshell","sex":"Female","color":"Tortoiseshell","weight":3.8,"ageMode":"exact","ageValue":"3.1","ageUnit":"months","birthday":"2026-04-20","birthdayEst":true,"intakeDate":"2026-07-23","intakeTime":"11:44","surrender":"Stray","size":null,"rabiesTag":"3026","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a622913438acb7c7a021f35/images/IMG_5828.jpeg","notes":"My name's Sadie. I'm the runt of my litter, so I'm on the smaller side—but it just means I'm extra cuddly and only a tiny bit skittish. Be gentle and take things slowly, and I promise I'll be cuddled up in your lap in no time. Dogs and kids scare me, so I'd do best in a calm home. I used to be feral, but look at me now!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-23","weight":3.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000011,"updatedAt":1759700000011},{"id":"af840","afId":840,"importId":null,"name":"Bot","species":"cat","breed":"Domestic Short Hair","sex":"Female","color":"Calico / Dilute Calico","weight":4.8,"ageMode":"exact","ageValue":"3.0","ageUnit":"months","birthday":"2026-04-21","birthdayEst":true,"intakeDate":"2026-07-21","intakeTime":"16:31","surrender":"Stray","size":null,"rabiesTag":"3016","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a5fca1b7c9a0aabde09f811/images/IMG_5853.jpeg","notes":"Hi, I'm Bot! I'm a super playful girl with lots of love to give. I enjoy hanging out with my other kitty friends but I also like some time for me. I have lots of kitten energy and always have my eyes on the prize.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-21","weight":4.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000012,"updatedAt":1759700000012},{"id":"af833","afId":833,"importId":null,"name":"Lucky","species":"dog","breed":"Pit Bull Terrier / Mix","sex":"Male (neutered)","color":"White / Brown","weight":47,"ageMode":"exact","ageValue":"11.9","ageUnit":"months","birthday":"2025-07-13","birthdayEst":true,"intakeDate":"2026-07-11","intakeTime":"11:49","surrender":"Stray","size":"Medium (20-59)","rabiesTag":"1161","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a54fbb5ab3ac66a710e9d9b/images/IMG_3213.jpeg","notes":"Hi, my name is Lucky. I've got a big bark and a big heart. I like to play with my other puppy friends but I play hard so they have to be up for it! I also like to dance and wiggle my butt! I know I've got a lot of energy but the right person will come running for me.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-07-11","weight":47}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000013,"updatedAt":1759700000013},{"id":"af798","afId":798,"importId":null,"name":"Victor","species":"dog","breed":"Mix","sex":"Male (neutered)","color":"Brown / Tan/Yellow/Fawn","weight":44.8,"ageMode":"exact","ageValue":"6.6","ageUnit":"months","birthday":"2025-12-10","birthdayEst":true,"intakeDate":"2026-06-29","intakeTime":"14:46","surrender":"Owner Surrender","size":null,"rabiesTag":"1073","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a42afbe78f4e925710af992/images/IMG_5194.jpg","notes":"Hi, my names Victor. I'm not social and a lot scares me. I don't like loud noises or when people move too fast. I'm super jumpy and overall timid, I need time before I warm up. I wouldn't do good in a house with young kids. But I do get along with other dogs. I love stuffed animals and anything I can chew on. If I get scared enough I am a sort of an escape artist.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-06-29","weight":44.8}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000014,"updatedAt":1759700000014},{"id":"af803","afId":803,"importId":null,"name":"Jinx","species":"dog","breed":"Mix","sex":"Male","color":"Black / Brindle","weight":57,"ageMode":"exact","ageValue":"10.0","ageUnit":"years","birthday":"2016-07-15","birthdayEst":true,"intakeDate":"2026-06-29","intakeTime":"11:30","surrender":"Owner Surrender","size":null,"rabiesTag":"3033","altered":"","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a42c68d176c8c64d606cd95/images/IMG_3216.jpeg","notes":"Hello my name is Jinx. I'm just a sweet old guy but I'm set in my ways. I am a bit nervous at first but with a gentle hand and patience I'll be fine and dandy! I get along with other dogs and cats but I'm not too fond of kids. I need medicated baths here and there because I have some skin issues. Short, low impact walks only.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-06-29","weight":57}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000015,"updatedAt":1759700000015},{"id":"af792","afId":792,"importId":null,"name":"Crocker","species":"cat","breed":"Domestic Short Hair","sex":"Male (neutered)","color":"Tabby (Tiger Striped) / White","weight":7.6,"ageMode":"exact","ageValue":"2.6","ageUnit":"months","birthday":"2026-04-06","birthdayEst":true,"intakeDate":"2026-06-23","intakeTime":"14:59","surrender":"Stray","size":null,"rabiesTag":"3037","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a3acac637405d4aba0d9008/images/IMG_5001.jpg","notes":"Meet Crocker! This boy loves to explore and see what's just around the corner. Once he warms up to you, the bond is unbreakable. He does enjoy his own space sometimes but doesn't mind other kitty friends.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-06-23","weight":7.6}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000016,"updatedAt":1759700000016},{"id":"af790","afId":790,"importId":null,"name":"Boop","species":"cat","breed":"Domestic Short Hair","sex":"Female (spayed)","color":"Tabby (Brown / Chocolate)","weight":3.38,"ageMode":"exact","ageValue":"2.6","ageUnit":"months","birthday":"2026-04-06","birthdayEst":true,"intakeDate":"2026-06-23","intakeTime":"14:59","surrender":"Stray","size":null,"rabiesTag":"200582","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a3acab7ab5c7389a804346e/images/att.KlOphpB_xLsXLWchirl4aMdf824La9Wf42nj8bIeYy4.jpeg","notes":"My name is Boop, and I'm one of the Betty babies, so I was born right here at the shelter. I may be a little spoiled and a bit of an escape artist. I love playing with my cat friends. When I'm having fun, I turn into the goofiest girl on the planet!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-06-23","weight":3.38}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000017,"updatedAt":1759700000017},{"id":"af784","afId":784,"importId":null,"name":"Terry","species":"dog","breed":"Belgian Malinois","sex":"Male (neutered)","color":"Brown / Black","weight":55.6,"ageMode":"exact","ageValue":"5.0","ageUnit":"years","birthday":"2021-06-20","birthdayEst":true,"intakeDate":"2026-06-19","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"0928","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a357fea56ba88aa4c011981/images/IMG_0843.jpeg","notes":"Hi, my name is Terry! I'm an active dog who loves going for walks, playing fetch, and tug-of-war. I am very good at taking commands. I could use an experienced owner. I can be a little iffy around other dogs—I'm selective about my friends.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-06-19","weight":55.6}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000018,"updatedAt":1759700000018},{"id":"af743","afId":743,"importId":null,"name":"Bailey","species":"cat","breed":"Domestic Short Hair","sex":"Female (spayed)","color":"Gray / Blue / Silver","weight":4.2,"ageMode":"exact","ageValue":"0.4","ageUnit":"weeks","birthday":"2026-05-24","birthdayEst":true,"intakeDate":"2026-05-27","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"3041","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a16ea731be6dec4bd0ce72b/images/IMG_4924.jpg","notes":"Hi, my name is Bailey. I was found in a bale of hay as a little baby kitten. Yes, I'm a diva but it's because I am an only child. With that being said, I do great with other cats. I love to play and cuddle too.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-05-27","weight":4.2}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000019,"updatedAt":1759700000019},{"id":"af742","afId":742,"importId":null,"name":"Digit","species":"cat","breed":"Domestic Short Hair","sex":"Male (neutered)","color":"Black / White","weight":4.36,"ageMode":"exact","ageValue":"1.7","ageUnit":"months","birthday":"2026-04-06","birthdayEst":true,"intakeDate":"2026-05-26","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"3036","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/6a15f519dc177dd4c9020e24/images/IMG_4951.jpg","notes":"Hi, my name is Digit! I'm a shy but curious boy who loves to play with my other kitty friends. I can be a bit distracted looking out the window or sniffing around, but I just like to know what's going on.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-05-26","weight":4.36}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000020,"updatedAt":1759700000020},{"id":"af710","afId":710,"importId":null,"name":"Keeta","species":"cat","breed":"Domestic Short Hair","sex":"Male (neutered)","color":"Tabby (Tiger Striped) / White","weight":10.38,"ageMode":"exact","ageValue":"11.9","ageUnit":"months","birthday":"2025-05-05","birthdayEst":true,"intakeDate":"2026-05-01","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"0694","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69f4f8e02dcba6da5b04a7b0/images/IMG_2892.jpg","notes":"Keeta is a sweet and tender-hearted kitty who came from a rough situation. He's affectionate and loves to talk to you. Keeta prefers a quiet spot where he can snuggle up and feel safe. He gets along wonderfully with other cats.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-05-01","weight":10.38}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000021,"updatedAt":1759700000021},{"id":"af510","afId":510,"importId":"PATR-A-519","name":"Gomez","species":"dog","breed":"Pit Bull Terrier / Mix","sex":"Male (neutered)","color":"Brindle","weight":69.4,"ageMode":"exact","ageValue":"3.1","ageUnit":"years","birthday":"2023-03-24","birthdayEst":false,"intakeDate":"2026-04-23","intakeTime":"01:00","surrender":"Owner Surrender","size":null,"rabiesTag":"1527","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa530f96f2d1957503428f/images/IMG_2904.jpg","notes":"Hi, I'm Gomez — a playful and sweet-natured pup with a reserved side. I can be a bit shy around new people. I'm working on building my confidence and getting more socialized, and with a little patience and love, I know I'll blossom!","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-04-23","weight":69.4}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000022,"updatedAt":1759700000022},{"id":"af660","afId":660,"importId":null,"name":"Mary Jane","species":"cat","breed":"Domestic Short Hair","sex":"Female (spayed)","color":"Tortoiseshell","weight":5.94,"ageMode":"exact","ageValue":"3.9","ageUnit":"months","birthday":"2025-11-13","birthdayEst":true,"intakeDate":"2026-03-10","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"0592","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69b0608ffba0e1acef074e35/images/IMG_9083.jpeg","notes":"Meet Mary Jane! She's a lively and curious young kitty, full of spunk and personality. Mary Jane loves exploring her surroundings and craves attention from her family. She's great with other cats.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-03-10","weight":5.94}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000023,"updatedAt":1759700000023},{"id":"af659","afId":659,"importId":null,"name":"Groot","species":"cat","breed":"Domestic Short Hair","sex":"Male (neutered)","color":"Black","weight":7.28,"ageMode":"exact","ageValue":"3.9","ageUnit":"months","birthday":"2025-11-13","birthdayEst":true,"intakeDate":"2026-03-10","intakeTime":"01:00","surrender":"Stray","size":null,"rabiesTag":"0579","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69b06086c79b94e24402bbaf/images/IMG_3517.jpeg","notes":"Groot is a kitten who is full of love and energy for life. He needs someone to share all his energetic love with. He is good with other cats.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-03-10","weight":7.28}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000024,"updatedAt":1759700000024},{"id":"af647","afId":647,"importId":"PATR-A-656","name":"Petal","species":"cat","breed":"Domestic Short Hair","sex":"","color":"Black","weight":6.82,"ageMode":"exact","ageValue":"1.0","ageUnit":"years","birthday":"2025-03-02","birthdayEst":false,"intakeDate":"2026-03-02","intakeTime":"00:00","surrender":"Stray","size":null,"rabiesTag":"0556","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa531096f2d1957503438d/images/IMG_3498.jpeg","notes":"Petal is a sweet and gentle cat looking for a quiet, loving home. Petal loves to be held and petted, and she enjoys cozy, peaceful surroundings. She can be shy at first but once she gets to know everyone she fits right in.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2026-03-02","weight":6.82}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000025,"updatedAt":1759700000025},{"id":"af577","afId":577,"importId":"PATR-A-586","name":"Mouse","species":"dog","breed":"Cane Corso","sex":"Male (neutered)","color":"Grey / Brindle","weight":110,"ageMode":"exact","ageValue":"2.0","ageUnit":"years","birthday":"2023-12-08","birthdayEst":false,"intakeDate":"2025-12-07","intakeTime":"00:00","surrender":"Stray","size":"Extra-Large (100+)","rabiesTag":"0059","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa530f96f2d1957503430f/images/0a232126e1193ba221cce14cfe0c05a6.jpg","notes":"Meet Mouse! This big-hearted goofball is looking for a strong, caring owner who can help him build confidence. Mouse can be a bit shy at first and takes his time warming up to new people. He prefers a home without young children or with older, respectful ones.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2025-12-07","weight":110}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000026,"updatedAt":1759700000026},{"id":"af486","afId":486,"importId":"PATR-A-495","name":"Blaze","species":"dog","breed":"Bullmastiff / Mix","sex":"Male (neutered)","color":"Brindle","weight":80.6,"ageMode":"exact","ageValue":"2.0","ageUnit":"years","birthday":"2023-08-23","birthdayEst":false,"intakeDate":"2025-08-23","intakeTime":"01:00","surrender":"Transfer In","size":"Large (60-99)","rabiesTag":"0847","altered":"Yes","microchip":"","photo":"https://animalsfirstprod.s3.amazonaws.com/69a8755bb7fae059360a3d72/69aa530f96f2d19575034261/images/653e6a35f7588995d91ce91559496f61.jpg","notes":"Meet Blaze! This playful pup was transferred from another shelter. Blaze loves his toys—especially the squeaky ones! He knows basic commands and is eager to please. Blaze would thrive with a dog-savvy owner that has no children.","checklist":{},"vaccines":[],"treatments":[],"vaxPlan":[],"weights":[{"date":"2025-08-23","weight":80.6}],"outcome":"","recordsProvided":false,"source":"Animals First (adopt.animalsfirst.com) · imported 2026-10-06","createdAt":1759700000027,"updatedAt":1759700000027}];
+let DB=load();
+function load(){
+  try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.animals){d.settings=Object.assign(defaultSettings(),d.settings||{});d.settings.protocols=d.settings.protocols||defaultSettings().protocols;if(d.settings.vaccines&&d.settings.vaccines.cat)d.settings.vaccines.cat=d.settings.vaccines.cat.filter(v=>v.name!=='FeLV');
+    if(!d.seeded){SEED_ANIMALS.forEach(x=>{if(!d.animals.some(a=>a.id===x.id))d.animals.push(JSON.parse(JSON.stringify(x)));});d.seeded=true;}
+    return d;}}catch(e){}
+  // first run on this computer: start with the shelter's current roster from Animals First (fully editable)
+  return {animals:JSON.parse(JSON.stringify(SEED_ANIMALS)),settings:defaultSettings(),seeded:true};
+}
+function save(){try{if(typeof syScan==='function')syScan();}catch(e){}try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){alert('Storage is full — the browser could not save. Remove a few photos or export a backup and erase old records.');}}
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36);
+const todayStr=()=>fmtISO(new Date());
+function fmtISO(d){const z=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());}
+function parseISO(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+function addDays(iso,n){const d=parseISO(iso);d.setDate(d.getDate()+n);return fmtISO(d);}
+function addMonths(iso,n){const d=parseISO(iso);d.setMonth(d.getMonth()+n);return fmtISO(d);}
+function nice(iso){if(!iso)return '—';const d=parseISO(iso);return d.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});}
+function niceShort(iso){const d=parseISO(iso);return d.toLocaleDateString(undefined,{month:'short',day:'numeric'});}
+function daysBetween(a,b){return Math.round((parseISO(b)-parseISO(a))/86400000);}
+const sp=id=>SPECIES.find(s=>s.id===id)||SPECIES[SPECIES.length-1];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200);}
+
+/* ====================== PHOTOS ====================== */
+function pickPhoto(target,cb){ // target: FORM or an animal record
+  const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
+  inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{
+    const max=800;let w=img.width,h=img.height;if(w>max||h>max){const k=Math.min(max/w,max/h);w=Math.round(w*k);h=Math.round(h*k);}
+    const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+    target.photo=c.toDataURL('image/jpeg',0.85);target.photoLocal=true;cb&&cb();};img.src=r.result;};r.readAsDataURL(f);};
+  inp.click();
+}
+function photoHTML(a,cls,size){ if(!a.photo)return null;const s=sp(a.species);
+  return `<div class="${cls} ph ${s.id==='cat'?'cat':s.main?'':'other'}" style="width:${size}px;height:${size}px;position:relative;overflow:hidden;flex:none">${s.icon}<img src="${esc(a.photo)}" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()"></div>`; }
+function setPhoto(){const a=A();pickPhoto(a,()=>{a.updatedAt=Date.now();render();toast('Photo updated');});}
+function removePhoto(){const a=A();if(!confirm('Remove this photo?'))return;a.photo='';a.photoLocal=false;a.updatedAt=Date.now();render();}
+
+/* ====================== STRAY HOLD (48h) ====================== */
+function holdEnds(a){ if(a.surrender!=='Stray'||a.species!=='dog')return null; /* PA stray hold applies to dogs only */ const t=new Date(a.intakeDate+'T'+(a.intakeTime||'12:00')); t.setHours(t.getHours()+48); return t; }
+function isLocked(a){const e=holdEnds(a);return !!e && e>new Date();}
+function holdText(a){const e=holdEnds(a);if(!e)return '';const ms=e-new Date();if(ms<=0)return 'Stray hold complete';const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return `Stray hold: ${h}h ${m}m remaining (until ${e.toLocaleString(undefined,{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})})`;}
+
+/* ====================== VACCINE PLAN ====================== */
+function isYoung(a){ // "puppy/kitten" = 3 months or younger
+  if(a.birthday){return ageMonthsAt(a,a.intakeDate)<=3;}
+  if(a.ageMode==='exact'&&a.ageValue){const v=parseFloat(a.ageValue);const months=a.ageUnit==='weeks'?v/4.345:a.ageUnit==='years'?v*12:v;return months<=3;}
+  return a.ageStage==='baby';
+}
+function ageMonthsAt(a,iso){ // estimated age in months on a given date
+  if(a.birthday){const bd=parseISO(a.birthday),d=parseISO(iso);return (d.getFullYear()-bd.getFullYear())*12+(d.getMonth()-bd.getMonth())+(d.getDate()-bd.getDate())/30.44;}
+  if(!(a.ageMode==='exact'&&a.ageValue))return null;const v=parseFloat(a.ageValue);const m0=a.ageUnit==='weeks'?v/4.345:a.ageUnit==='years'?v*12:v;return m0+daysBetween(a.intakeDate,iso)/30.44;
+}
+function vaxStartDate(a){const he=holdEnds(a);return he?fmtISO(he):a.intakeDate;}
+function buildVaxPlan(a){
+  const proto=DB.settings.protocols[a.species];if(!proto||a.recordsProvided)return [];
+  const start=vaxStartDate(a);const young=isYoung(a);const out=[];
+  proto.items.forEach(it=>{
+    const n=young?it.young:it.adult;
+    for(let i=0;i<n;i++){
+      let date=it.everyMonths?addMonths(start,i*it.everyMonths):addDays(start,i*(it.everyDays||0));
+      let note='';
+      if(it.minAgeMonths){
+        const am=ageMonthsAt(a,date);
+        if(am!==null&&am<it.minAgeMonths){ date=addDays(date,Math.ceil((it.minAgeMonths-am)*30.44)); note=`when ${it.minAgeMonths} months old`; }
+        else if(am===null&&young){ note=`only once ${it.minAgeMonths} months or older — confirm age first`; }
+      }
+      out.push({id:uid(),name:it.name,date,label:n>1?`${it.name} · dose ${i+1} of ${n}`:it.name,note,given:null});
+    }
+  });
+  return out.sort((x,y)=>x.date.localeCompare(y.date));
+}
+function ensureVaxPlan(a){ if(!a.vaxPlan||!a.vaxPlan.some(d=>d.given)) a.vaxPlan=buildVaxPlan(a); }
+
+/* ====================== DOSING MATH ====================== */
+function doseAmount(med,species,weight){const div=med.divisor[species];if(!div||!weight)return null;return Math.round(weight/div*100)/100;}
+function buildPlan(med,startISO){
+  const out=[];let cursor=startISO;let last=null;
+  med.plan.forEach(step=>{
+    if(step.gap){ cursor = step.gap.months? addMonths(last,step.gap.months) : addDays(last,step.gap.days||0); }
+    for(let i=0;i<step.doses;i++){
+      const date = i===0? cursor : addDays(last,step.everyDays||1);
+      out.push({date,label:`${step.label} · dose ${i+1} of ${step.doses}`,given:null});
+      last=date;
+    }
+    cursor=last;
+  });
+  return out;
+}
+
+/* ====================== ROUTER ====================== */
+let VIEW='animals', CUR=null, TAB='overview', CAL=new Date(), FILTER={q:'',species:'',surrender:'',from:'',to:'',status:'active'};
+document.querySelectorAll('.navbtn[data-view]').forEach(b=>b.onclick=()=>{VIEW=b.dataset.view;CUR=null;render();});
+function render(){
+  document.getElementById('shelterName').textContent=DB.settings.shelterName;
+  document.querySelectorAll('.navbtn[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===VIEW));
+  const m=document.getElementById('main');
+  const prevTabs=document.querySelector('.tabs');const keepScroll=prevTabs?prevTabs.scrollLeft:0;
+  if(VIEW==='animals') m.innerHTML = CUR? renderAnimal(CUR) : renderAnimals();
+  else if(VIEW==='today') m.innerHTML=renderToday();
+  else if(VIEW==='calendar') m.innerHTML=renderCalendar();
+  else m.innerHTML=renderSettings();
+  const nt=document.querySelector('.tabs');if(nt){nt.scrollLeft=keepScroll;const on=nt.querySelector('.tab.on,.tab.active');if(on&&on.offsetLeft+on.offsetWidth>nt.clientWidth+nt.scrollLeft||on&&on.offsetLeft<nt.scrollLeft)nt.scrollLeft=on.offsetLeft-12;}
+  save();
+}
+
+/* ====================== ANIMALS LIST ====================== */
+function keepFocus(id){const i=document.getElementById(id);if(i){i.focus();const n=i.value.length;i.setSelectionRange(n,n);}}
+function renderAnimals(){
+  let list=DB.animals.slice().sort((a,b)=>b.intakeDate.localeCompare(a.intakeDate));
+  const f=FILTER;
+  if(f.status==='active') list=list.filter(a=>!a.outcome);
+  if(f.status==='out') list=list.filter(a=>a.outcome);
+  if(f.q){const q=f.q.toLowerCase();list=list.filter(a=>[a.name,a.breed,a.color,a.id2,a.notes].join(' ').toLowerCase().includes(q));}
+  if(f.species==='other*') list=list.filter(a=>a.species!=='dog'&&a.species!=='cat');
+  else if(f.species) list=list.filter(a=>a.species===f.species);
+  const nFilt=[f.surrender,f.from||f.to,f.status!=='active',f.species&&!['dog','cat','other*'].includes(f.species)].filter(Boolean).length;
+  if(f.surrender) list=list.filter(a=>a.surrender===f.surrender);
+  if(f.from) list=list.filter(a=>a.intakeDate>=f.from);
+  if(f.to) list=list.filter(a=>a.intakeDate<=f.to);
+  const active=DB.animals.filter(a=>!a.outcome);
+  return `
+  <div class="topbar"><div><h1>Animals</h1><div class="sub">${active.length} in care · ${DB.animals.length} total records</div></div>
+    <button class="btn primary hide-m" onclick="openIntake()">＋ New Intake</button></div>
+  <div class="card fcard" style="margin-bottom:16px">
+    <div class="row" style="flex-wrap:nowrap">
+      <input class="in" id="animq" style="flex:1;min-width:0" placeholder="Search name, breed, color, ID…" value="${esc(f.q)}" oninput="FILTER.q=this.value;render();keepFocus('animq')">
+      <button class="btn filt-toggle" onclick="FILTER.open=!FILTER.open;render()">⚙ Filters${nFilt?` <span class="tag ok">${nFilt}</span>`:''}</button>
+    </div>
+    <div class="chips quick">${[['','All'],['dog','🐶 Dogs'],['cat','🐱 Cats'],['other*','🐾 Other']].map(c=>`<button class="chip ${(f.species||'')===c[0]?'on':''}" onclick="FILTER.species='${c[0]}';render()">${c[1]}</button>`).join('')}<span class="sub" style="margin-left:auto;align-self:center">${list.length} shown</span></div>
+    <div class="fmore ${f.open?'open':''}">
+      <div class="row">
+        <select class="in" style="flex:1;min-width:150px" onchange="FILTER.surrender=this.value;render()"><option value="">All intake types</option><option ${f.surrender==='Stray'?'selected':''}>Stray</option><option value="Owner Surrender" ${f.surrender==='Owner Surrender'?'selected':''}>Owner Surrender</option><option value="Transfer In" ${f.surrender==='Transfer In'?'selected':''}>Transfer In</option></select>
+        <select class="in" style="flex:1;min-width:130px" onchange="FILTER.status=this.value;render()"><option value="active" ${f.status==='active'?'selected':''}>In care</option><option value="out" ${f.status==='out'?'selected':''}>Left shelter</option><option value="all" ${f.status==='all'?'selected':''}>Everyone</option></select>
+        <select class="in" style="flex:1;min-width:140px" onchange="FILTER.species=this.value;render()"><option value="">Any species</option>${SPECIES.map(s=>`<option value="${s.id}" ${f.species===s.id?'selected':''}>${s.icon} ${s.name}</option>`).join('')}</select>
+      </div>
+      <div class="row" style="margin-top:10px"><span class="sub">Intake date</span><input type="date" class="in" style="width:170px" value="${f.from}" onchange="FILTER.from=this.value;render()"><span class="sub">to</span><input type="date" class="in" style="width:170px" value="${f.to}" onchange="FILTER.to=this.value;render()">
+        <button class="btn sm" onclick="FILTER={q:'',species:'',surrender:'',from:'',to:'',status:'active',open:true};render()">Clear filters</button></div>
+    </div>
+  </div>
+  ${list.length? `<div class="animals">${list.map(cardHTML).join('')}</div>` : `<div class="empty"><div class="big">🐾</div><b>No animals match.</b><div>Start a new intake or clear the filters.</div></div>`}`;
+}
+function cardHTML(a){
+  const s=sp(a.species);const locked=isLocked(a);const due=dueItems(a);
+  return `<div class="acard" onclick="openAnimal('${a.id}')">
+    ${photoHTML(a,'avatar',56)||`<div class="avatar ${s.id==='cat'?'cat':s.main?'':'other'}">${s.icon}</div>`}
+    <div style="min-width:0">
+      <div class="nm">${esc(a.name||'(unnamed)')}</div>
+      <div class="meta">${s.name}${a.breed?' · '+esc(a.breed):''}${a.sex?' · '+a.sex:''} · ${ageText(a)}</div>
+      <div class="meta">In ${nice(a.intakeDate)} · ${a.weight?a.weight+' lb':'no weight'}</div>
+      <div class="tags"><span class="tag ${a.surrender==='Stray'?'stray':'owner'}">${a.surrender}</span>${locked?'<span class="tag locked">🔒 48h hold</span>':''}${a.outcome?`<span class="tag">${esc(a.outcome)}</span>`:''}${due.overdue?`<span class="tag overdue">${due.overdue} overdue</span>`:due.today?`<span class="tag due">${due.today} due today</span>`:''}</div>
+    </div></div>`;
+}
+function ageText(a){
+  if(a.birthday){const bd=parseISO(a.birthday),n=new Date();let m=(n.getFullYear()-bd.getFullYear())*12+(n.getMonth()-bd.getMonth());if(n.getDate()<bd.getDate())m--;if(m<0)m=0;
+    const t=m<12?`${m} mo`:`${Math.floor(m/12)} yr${m%12?' '+(m%12)+' mo':''}`;return `Age: ${t}${a.birthdayEst!==false?' (est.)':''}`;}
+  if(a.ageMode==='exact'&&a.ageValue) return `Age: ${esc(a.ageValue)} ${a.ageUnit||''}`.trim();
+  const st=STAGES.find(x=>x.id===a.ageStage); if(!st) return 'Age unknown';
+  return st.id==='baby'? sp(a.species).young : st.label;
+}
+function dueItems(a){
+  const t=todayStr();let overdue=0,today=0;
+  (a.treatments||[]).forEach(tr=>tr.doses.forEach(d=>{if(!d.given){if(d.date<t)overdue++;else if(d.date===t)today++;}}));
+  (a.vaccines||[]).forEach(v=>{if(v.nextDue&&!v.boosterDone&&!(a.vaxPlan||[]).some(p=>!p.given&&p.name===v.name)){if(v.nextDue<t)overdue++;else if(v.nextDue===t)today++;}});
+  (a.vaxPlan||[]).forEach(p=>{if(!p.given){if(p.date<t)overdue++;else if(p.date===t)today++;}});
+  return {overdue,today};
+}
+
+/* ====================== INTAKE / EDIT FORM ====================== */
+let FORM=null;
+function openIntake(existing){
+  FORM = existing? JSON.parse(JSON.stringify(existing)) : {id:uid(),name:'',species:'dog',breed:'',sex:'',color:'',weight:'',ageMode:'stage',ageStage:'adult',ageValue:'',ageUnit:'years',intakeDate:todayStr(),intakeTime:new Date().toTimeString().slice(0,5),surrender:'Stray',foundLocation:'',microchip:'',recordsProvided:false,notes:'',checklist:{},vaccines:[],treatments:[],weights:[],outcome:'',createdAt:Date.now()};
+  showModal(formHTML(!!existing));
+}
+function formHTML(editing){
+  const a=FORM;
+  const mains=SPECIES.filter(s=>s.main), others=SPECIES.filter(s=>!s.main);
+  const isOther=!sp(a.species).main;
+  const young=sp(a.species).young;
+  return `<div class="mhead"><h2>${editing?'Edit animal':'New intake'}</h2><button class="x" onclick="closeModal()">×</button></div>
+  <div class="section row" style="align-items:flex-start;gap:16px">
+    <div style="flex:none;text-align:center">${a.photo?`<img src="${esc(a.photo)}" alt="" style="width:96px;height:96px;object-fit:cover;border-radius:18px;display:block">`:`<div class="avatar" style="width:96px;height:96px;border-radius:18px;font-size:40px">${sp(a.species).icon}</div>`}
+      <button class="btn sm" style="margin-top:6px" onclick="pickPhoto(FORM,refreshForm)">📷 ${a.photo?'Change':'Add photo'}</button>${a.photo?`<button class="btn sm" style="margin-top:6px" onclick="FORM.photo='';FORM.photoLocal=false;refreshForm()">✕</button>`:''}</div>
+    <div style="flex:1"><label class="f">Animal name</label><input class="in" style="font-size:20px;font-weight:700;padding:12px" placeholder="Give them a name…" value="${esc(a.name)}" oninput="FORM.name=this.value" autofocus></div></div>
+  <div class="section"><label class="f">Species</label>
+    <div class="chips">${mains.map(s=>`<button class="chip big ${a.species===s.id?'on':''}" onclick="FORM.species='${s.id}';refreshForm()">${s.icon} ${s.name}</button>`).join('')}
+    <button class="chip big ${isOther?'on':''}" onclick="FORM.species='rabbit';refreshForm()">🐾 Other</button></div>
+    ${isOther?`<div style="margin-top:10px"><select class="in" onchange="FORM.species=this.value;refreshForm()">${others.map(s=>`<option value="${s.id}" ${a.species===s.id?'selected':''}>${s.icon} ${s.name}</option>`).join('')}</select><div class="hint">Common Pennsylvania species. Add more in Settings if needed.</div></div>`:''}
+  </div>
+  <div class="grid cols-3 section">
+    <div><label class="f">Breed / description</label><input class="in" value="${esc(a.breed)}" oninput="FORM.breed=this.value" placeholder="e.g. Lab mix, DSH"></div>
+    <div><label class="f">Sex</label><select class="in" onchange="FORM.sex=this.value"><option value="">Unknown</option>${['Male','Female','Male (neutered)','Female (spayed)'].map(x=>`<option ${a.sex===x?'selected':''}>${x}</option>`).join('')}</select></div>
+    <div><label class="f">Color / markings</label><input class="in" value="${esc(a.color)}" oninput="FORM.color=this.value"></div>
+  </div>
+  <div class="grid cols-3 section">
+    <div><label class="f">Weight (lb) <span class="sub">— used for dosing</span></label><input class="in" type="number" step="0.1" min="0" value="${a.weight}" oninput="FORM.weight=this.value" placeholder="0.0"></div>
+    <div><label class="f">Microchip #</label><input class="in" value="${esc(a.microchip)}" oninput="FORM.microchip=this.value" placeholder="None found"></div>
+    <div><label class="f">Rabies tag #</label><input class="in" value="${esc(a.rabiesTag||'')}" oninput="FORM.rabiesTag=this.value"></div>
+  </div>
+  <div class="grid cols-2 section">
+    <div><label class="f">Birthdate <span class="sub">(optional — fills in age)</span></label><div class="row"><input class="in" type="date" style="flex:1" value="${a.birthday||''}" onchange="FORM.birthday=this.value;if(this.value){FORM.ageMode='exact';applyBirthday(FORM);}refreshForm()"><label class="row" style="gap:5px;font-size:13px"><input type="checkbox" ${a.birthdayEst!==false?'checked':''} onchange="FORM.birthdayEst=this.checked"> estimated</label></div></div>
+    <div><label class="f">Spayed / neutered</label><select class="in" onchange="FORM.altered=this.value"><option value="">Unknown</option>${['Yes','No'].map(x=>`<option ${a.altered===x?'selected':''}>${x}</option>`).join('')}</select></div>
+  </div>
+  <div class="section"><label class="f">Age</label>
+    <div class="ageSeg" style="max-width:360px;margin-bottom:10px"><button class="${a.ageMode==='stage'?'on':''}" onclick="FORM.ageMode='stage';refreshForm()">Estimate / life stage</button><button class="${a.ageMode==='exact'?'on':''}" onclick="FORM.ageMode='exact';refreshForm()">Type exact age</button></div>
+    ${a.ageMode==='exact'? `<div class="row"><span class="sub">Age:</span><input class="in" style="width:110px" type="number" min="0" step="0.5" value="${a.ageValue}" oninput="FORM.ageValue=this.value" placeholder="0"><select class="in" style="width:130px" onchange="FORM.ageUnit=this.value">${['weeks','months','years'].map(u=>`<option ${a.ageUnit===u?'selected':''}>${u}</option>`).join('')}</select></div>`
+    : `<div class="chips">${STAGES.map(s=>`<button class="chip ${a.ageStage===s.id?'on':''}" onclick="FORM.ageStage='${s.id}';refreshForm()" title="${s.hint}">${s.id==='baby'?young:s.label}<span class="sub" style="margin-left:6px;font-size:12px;${a.ageStage===s.id?'color:#dff0e6':''}">${s.hint}</span></button>`).join('')}</div>`}
+  </div>
+  <div class="section"><label class="f">Type of intake</label>
+    <div class="chips"><button class="chip big ${a.surrender==='Stray'?'on':''}" onclick="FORM.surrender='Stray';refreshForm()">Stray</button><button class="chip big ${a.surrender==='Owner Surrender'?'on':''}" onclick="FORM.surrender='Owner Surrender';refreshForm()">Owner Surrender</button><button class="chip big ${a.surrender==='Transfer In'?'on':''}" onclick="FORM.surrender='Transfer In';refreshForm()">Transfer In</button></div>
+    ${a.surrender==='Stray'&&a.species==='dog'?`<div class="banner lock" style="margin-top:10px">🔒 Stray dog: this record will be locked from edits for <b>48 hours</b> after intake (PA stray hold). Medical care can still be logged. Vaccines are scheduled to start after the hold.</div>`:a.surrender==='Stray'?`<div class="banner info" style="margin-top:10px">Stray ${sp(a.species).name.toLowerCase()}: no 48-hour hold — record can be edited right away.</div>`:a.surrender==='Transfer In'?`<div class="banner info" style="margin-top:10px">Transfer from another shelter: record can be edited right away. Check the box below if their records came with them.</div>`:`<div class="banner info" style="margin-top:10px">Owner surrender: record can be edited right away. Vaccines are scheduled to start on intake.</div>`}
+    ${a.surrender!=='Stray'?`<label class="check ${a.recordsProvided?'done':''}" style="margin-top:10px"><input type="checkbox" ${a.recordsProvided?'checked':''} onchange="FORM.recordsProvided=this.checked;refreshForm()"><span>${a.surrender==='Transfer In'?'Vaccination records came with transfer':'Owner provided vaccination records'}</span><span class="when">${a.recordsProvided?'No vaccine plan will be created — enter their records on the Vaccines tab':'Uncheck if no records'}</span></label>`:''}
+  </div>
+  <div class="grid cols-2 section">
+    <div><label class="f">Intake date</label><input class="in" type="date" value="${a.intakeDate}" onchange="FORM.intakeDate=this.value"></div>
+    <div><label class="f">Intake time</label><input class="in" type="time" value="${a.intakeTime||''}" onchange="FORM.intakeTime=this.value"></div>
+  </div>
+  <div class="section"><label class="f">Notes</label><textarea class="in" oninput="FORM.notes=this.value" placeholder="Condition on arrival, temperament, anything staff should know…">${esc(a.notes)}</textarea></div>
+  <div class="row mfoot" style="justify-content:flex-end"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveForm()">${editing?'Save changes':'Complete intake'}</button></div>`;
+}
+function applyBirthday(a){if(!a.birthday)return;const bd=parseISO(a.birthday),it=parseISO(a.intakeDate||todayStr());let m=(it.getFullYear()-bd.getFullYear())*12+(it.getMonth()-bd.getMonth())+(it.getDate()-bd.getDate())/30.44;if(m<0)m=0;
+  if(m<1){a.ageValue=String(Math.round(m*4.345*10)/10);a.ageUnit='weeks';}else if(m<12){a.ageValue=String(Math.round(m*10)/10);a.ageUnit='months';}else{a.ageValue=String(Math.round(m/12*10)/10);a.ageUnit='years';}}
+function refreshForm(){document.getElementById('modalBody').innerHTML=formHTML(!!DB.animals.find(x=>x.id===FORM.id));}
+function saveForm(){
+  if(!FORM.name.trim()){toast('Please give the animal a name');return;}
+  FORM.weight=FORM.weight?parseFloat(FORM.weight):'';
+  const i=DB.animals.findIndex(x=>x.id===FORM.id);
+  if(i>=0){ if(FORM.weight && FORM.weight!==DB.animals[i].weight) FORM.weights=[...(FORM.weights||[]),{date:todayStr(),weight:FORM.weight}]; DB.animals[i]=FORM; }
+  else { if(FORM.weight) FORM.weights=[{date:FORM.intakeDate,weight:FORM.weight}]; DB.animals.push(FORM); }
+  FORM.updatedAt=Date.now(); ensureVaxPlan(FORM);
+  closeModal(); CUR=FORM.id; VIEW='animals'; TAB='overview'; render(); toast(i>=0?'Saved':'Intake complete');
+}
+
+/* ====================== ANIMAL PROFILE ====================== */
+const A=()=>DB.animals.find(x=>x.id===CUR);
+function openAnimal(id){CUR=id;VIEW='animals';TAB='overview';ACAL=new Date();render();}
+function renderAnimal(){
+  const a=A(); if(!a){CUR=null;return renderAnimals();}
+  const s=sp(a.species);const locked=isLocked(a);
+  const tabs=[['overview','Overview','Overview'],['checklist','Intake checklist','Checklist'],['vaccines','Vaccines','Vaccines'],['meds','Medications & dewormers','Meds'],['schedule','Schedule','Schedule']];
+  return `
+  <div class="topbar animal-top"><button class="btn back" onclick="CUR=null;render()">← All animals</button>
+    <div class="row acts">${locked?`<span class="tag locked">🔒 ${holdText(a)}</span>`:''}<button class="btn a-edit" ${locked?'disabled title="Locked during 48h stray hold"':''} onclick="openIntake(A())">✎ Edit</button><button class="btn a-print" onclick="printAnimal()">🖨 <span class="t-full">Print record</span><span class="t-short">Print</span></button><button class="btn danger a-del" onclick="deleteAnimal()" title="${locked?'Admin: delete a mistaken entry even during the hold':'Delete this record'}">Delete</button><button class="btn primary a-done" onclick="doneEditing()">✓ Done</button></div></div>
+  <div class="card" style="margin-bottom:16px"><div class="hero">
+    <div style="position:relative;flex:none">${photoHTML(a,'avatar',80)||`<div class="avatar ${s.id==='cat'?'cat':s.main?'':'other'}">${s.icon}</div>`}
+      <button class="camBadge" onclick="setPhoto()" title="${a.photo?'Change photo':'Add photo'}" aria-label="Photo">📷</button></div>
+    <div style="flex:1"><div class="nm">${esc(a.name)}</div><div class="sub" style="font-size:15px">${s.name}${a.breed?' · '+esc(a.breed):''}${a.sex?' · '+a.sex:''} · ${ageText(a)} · ${a.weight?a.weight+' lb':'weight not recorded'}</div>
+      <div class="row" style="margin-top:8px"><span class="tag ${a.surrender==='Stray'?'stray':'owner'}">${a.surrender}</span><span class="tag">In ${nice(a.intakeDate)} · day ${daysBetween(a.intakeDate,todayStr())+1}</span>${a.outcome?`<span class="tag">${esc(a.outcome)} ${a.outcomeDate?nice(a.outcomeDate):''}</span>`:'<span class="tag ok">In care</span>'}</div></div>
+    <div style="text-align:right"><label class="f">Status</label><select class="in" ${locked?'disabled':''} onchange="setOutcome(this.value)"><option value="">In care</option>${['Adopted','Returned to owner','Transferred','Foster','Deceased'].map(o=>`<option ${a.outcome===o?'selected':''}>${o}</option>`).join('')}</select>${locked?'<div class="hint">Locked during stray hold</div>':''}</div>
+  </div>
+  ${locked?`<div class="banner lock" style="margin-top:14px">🔒 <b>48-hour stray hold in effect.</b> ${holdText(a)}. Profile and status cannot be changed until the hold ends. Medical care can still be logged. A mistaken entry can still be deleted.</div>`:''}
+  </div>
+  <div class="tabs">${tabs.map(t=>`<button class="tab ${TAB===t[0]?'active':''}" onclick="TAB='${t[0]}';render()"><span class="t-full">${t[1]}</span><span class="t-short">${t[2]}</span></button>`).join('')}</div>
+  ${({overview:tabOverview,checklist:tabChecklist,vaccines:tabVaccines,meds:tabMeds,schedule:tabSchedule})[TAB](a)}
+  <div class="row" style="justify-content:flex-end;margin-top:16px"><span class="sub">Changes save automatically.</span><button class="btn primary" onclick="doneEditing()">✓ Done</button></div>`;
+}
+function doneEditing(){const a=A();if(a){a.updatedAt=Date.now();}save();window._mdStart=null;window._mdSel=null;CUR=null;TAB='overview';render();toast(a?`${a.name} saved`:'Saved');}
+function setOutcome(v){const a=A();a.outcome=v;a.outcomeDate=v?todayStr():'';a.updatedAt=Date.now();render();toast(v?'Status updated':'Back in care');}
+function deleteAnimal(){const a=A();if(!a)return;
+  if(isLocked(a)){
+    const typed=prompt(`🔒 ${a.name} is on the 48-hour stray hold (${holdText(a)}).\n\nDeleting is for erasing a mistaken entry only — it does NOT release the animal.\n\nType DELETE to confirm:`);
+    if(typed===null||typed.trim().toUpperCase()!=='DELETE'){toast('Not deleted');return;}
+  } else if(!confirm(`Delete ${a.name}'s record permanently? This cannot be undone.`)) return;
+  (DB.tombstones=DB.tombstones||[]).push({id:a.id,at:Date.now()});DB.animals=DB.animals.filter(x=>x.id!==CUR);CUR=null;render();toast(`${a.name} deleted`);}
+
+function tabOverview(a){
+  const due=upcomingFor(a).slice(0,6);
+  const done=Object.values(a.checklist||{}).filter(Boolean).length;
+  return `<div class="grid cols-2">
+    <div class="card">${a.photo?`<img src="${esc(a.photo)}" alt="" style="width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:8px" onerror="this.style.display='none'"><div class="row" style="margin-bottom:14px"><button class="btn sm" onclick="setPhoto()">📷 Change photo</button><button class="btn sm" onclick="removePhoto()">Remove</button>${!a.photoLocal&&a.photo.startsWith('http')?'<span class="hint">Online photo from Animals First — upload your own to keep it offline.</span>':''}</div>`:`<button class="btn" style="width:100%;justify-content:center;margin-bottom:14px;padding:18px;border-style:dashed" onclick="setPhoto()">📷 Add a photo (PNG / JPG)</button>`}<h3>Details</h3><div class="kv">
+      <div>Species</div><div>${sp(a.species).name}</div><div>Breed</div><div>${esc(a.breed)||'—'}</div><div>Sex</div><div>${a.sex||'Unknown'}</div><div>Color</div><div>${esc(a.color)||'—'}</div>
+      <div>Age</div><div>${ageText(a)}</div><div>Weight</div><div>${a.weight?a.weight+' lb':'—'} ${a.weight?`<button class="btn sm" style="margin-left:8px" onclick="promptWeight()">Update</button>`:`<button class="btn sm" onclick="promptWeight()">Add weight</button>`}</div>
+      <div>Birthdate</div><div>${a.birthday?nice(a.birthday)+(a.birthdayEst!==false?' (est.)':''):'—'}</div><div>Spayed/neutered</div><div>${a.altered||'Unknown'}</div>
+      <div>Microchip</div><div>${esc(a.microchip)||'None'}</div><div>Rabies tag</div><div>${esc(a.rabiesTag)||'—'}</div><div>Intake</div><div>${nice(a.intakeDate)} ${a.intakeTime?fmtTime(a.intakeTime):''}</div>
+      ${a.afId?`<div>Animals First ID</div><div>${a.afId}${a.importId?' · '+esc(a.importId):''}</div>`:''}
+      <div>Record ID</div><div class="mono">${a.id.slice(0,8).toUpperCase()}</div></div>
+      ${a.notes?`<h3 style="margin-top:16px">Notes</h3><div style="white-space:pre-wrap">${esc(a.notes)}</div>`:''}
+      ${a.source?`<div class="hint" style="margin-top:12px">Imported from ${esc(a.source)}. Photo needs internet. Check details and edit anything that's off.</div>`:''}
+      ${(a.weights||[]).length>1?`<h3 style="margin-top:16px">Weight history</h3>${a.weights.map(w=>`<div class="list-item">${nice(w.date)}<span style="margin-left:auto;font-weight:600">${w.weight} lb</span></div>`).join('')}`:''}
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:14px"><h3>Intake checklist</h3><div class="row"><div style="flex:1;height:8px;background:#eef1ee;border-radius:4px;overflow:hidden"><div style="width:${done/INTAKE_CHECKLIST.length*100}%;height:100%;background:var(--brand)"></div></div><b>${done}/${INTAKE_CHECKLIST.length}</b></div><button class="btn sm" style="margin-top:10px" onclick="TAB='checklist';render()">Open checklist →</button></div>
+      <div class="card"><h3>Coming up</h3>${due.length?due.map(e=>`<div class="list-item"><span class="tag ${e.date<todayStr()?'overdue':e.date===todayStr()?'due':''}">${e.date<todayStr()?'Overdue':niceShort(e.date)}</span><span>${e.text}</span>${e.amount?`<b style="margin-left:auto;color:var(--brand)">${e.amount}</b>`:''}</div>`).join(''):'<div class="sub">Nothing scheduled. Add vaccines or start a dewormer.</div>'}</div>
+    </div></div>`;
+}
+function promptWeight(){const a=A();const w=prompt('Current weight (lb):',a.weight||'');if(w===null)return;const n=parseFloat(w);if(!n){toast('Enter a number');return;}a.weight=n;a.weights=[...(a.weights||[]),{date:todayStr(),weight:n}];a.updatedAt=Date.now();render();toast('Weight updated — new treatments will use '+n+' lb');}
+
+function tabChecklist(a){
+  a.checklist=a.checklist||{};
+  return `<div class="card" style="max-width:640px"><h2>Intake checklist</h2><div class="sub" style="margin-bottom:12px">Tap to check off. Date is recorded automatically.</div>
+  ${INTAKE_CHECKLIST.map(item=>{const v=a.checklist[item];return `<label class="check ${v?'done':''}"><input type="checkbox" ${v?'checked':''} onchange="toggleCheck('${esc(item)}',this.checked)"><span>${item}</span>${v?`<span class="when">${nice(v.date)}${v.by?' · '+esc(v.by):''}</span>`:''}</label>`}).join('')}
+  <div style="margin-top:14px"><label class="f">Your initials (recorded with each check)</label><input class="in" style="max-width:140px" value="${esc(DB.staff||'')}" oninput="DB.staff=this.value"></div></div>`;
+}
+function toggleCheck(item,on){const a=A();a.checklist[item]=on?{date:todayStr(),by:DB.staff||''}:null;a.updatedAt=Date.now();render();}
+
+function vaxPlanHTML(a){
+  if(!DB.settings.protocols[a.species])return '';
+  const plan=a.vaxPlan||[];const young=isYoung(a);const start=vaxStartDate(a);
+  const head=`<div class="row" style="justify-content:space-between"><h2 style="margin:0">Vaccine plan</h2><button class="btn sm" onclick="rebuildVaxPlan()" title="Rebuild from current age, intake type and dates">↻ Rebuild</button></div>
+   <div class="sub" style="margin-bottom:10px">${young?sp(a.species).young+' schedule (3 months or younger)':'Adult schedule'} · starts ${nice(start)}${holdEnds(a)?' (after 48h hold)':a.surrender==='Stray'?'':' (on intake)'}</div>`;
+  if(a.recordsProvided)return `<div class="card" style="margin-bottom:14px">${head}<div class="banner info">Owner provided vaccination records — no plan created. Enter their prior vaccines below.</div></div>`;
+  if(!plan.length)return `<div class="card" style="margin-bottom:14px">${head}<div class="sub">No plan yet.</div></div>`;
+  return `<div class="card" style="margin-bottom:14px">${head}${plan.map((d,i)=>`<div class="dose ${d.given?'given':''}"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--brand)" ${d.given?'checked':''} onchange="giveVaxDose(${i},this.checked)"><span class="d">${nice(d.date)}</span><span class="lbl"><b>${esc(d.label)}</b>${d.note?` <span class="tag due">${esc(d.note)}</span>`:''}${d.given?` · given ${nice(d.given)}${d.by?' by '+esc(d.by):''}`:d.date<todayStr()?' · <b style="color:var(--danger)">overdue</b>':''}</span></div>`).join('')}
+   <div class="hint">Checking a dose records it in the history below with today's date. Doses of the same series shift if one is given late.</div></div>`;
+}
+function rebuildVaxPlan(){const a=A();if(a.vaxPlan&&a.vaxPlan.some(d=>d.given)&&!confirm('Some doses are already given. Rebuild anyway? Given doses stay in history.'))return;a.vaxPlan=buildVaxPlan(a);a.updatedAt=Date.now();render();toast('Plan rebuilt');}
+function giveVaxDose(i,on){const a=A();const d=a.vaxPlan[i];
+  if(on){ if(holdEnds(a)&&isLocked(a)&&!confirm('This dog is still on the 48-hour stray hold. Record the vaccine anyway?')){render();return;}
+    d.given=todayStr();d.by=DB.staff||'';
+    if(d.given!==d.date){const shift=daysBetween(d.date,d.given);a.vaxPlan.forEach(x=>{if(!x.given&&x.name===d.name&&x.date>=d.date)x.date=addDays(x.date,shift);});}
+    const later=a.vaxPlan.filter(x=>x.name===d.name&&!x.given&&x.date>d.given).sort((x,y)=>x.date.localeCompare(y.date))[0];
+    const def=(DB.settings.vaccines[a.species]||[]).find(v=>v.name===d.name);
+    a.vaccines.forEach(v=>{if(v.name===d.name&&v.nextDue&&!v.boosterDone)v.boosterDone=true;});
+    a.vaccines.push({id:uid(),planId:d.id,name:d.name,date:d.given,lot:'',by:d.by,nextDue:later?later.date:(def&&def.interval?addDays(d.given,def.interval):'')});
+  } else { d.given=null;d.by='';a.vaccines=a.vaccines.filter(v=>v.planId!==d.id); }
+  a.updatedAt=Date.now();render();}
+
+function tabVaccines(a){
+  const list=DB.settings.vaccines[a.species]||[];a.vaccines=a.vaccines||[];ensureVaxPlan(a);
+  return `${vaxPlanHTML(a)}<div class="grid cols-2">
+   <div class="card"><h2>Record a vaccine manually</h2><div class="sub" style="margin-bottom:6px">For prior records or anything outside the plan.</div><div class="sub" style="margin-bottom:10px">Vaccines available for ${sp(a.species).name.toLowerCase()}s. Edit the list in Settings.</div>
+    ${list.length?`<label class="f">Vaccine</label><select class="in" id="vxName">${list.map(v=>`<option>${esc(v.name)}</option>`).join('')}</select>
+    <div class="grid cols-2" style="margin-top:10px"><div><label class="f">Date given</label><input class="in" type="date" id="vxDate" value="${todayStr()}"></div>${a.species==='cat'?'<input type="hidden" id="vxLot" value="">':'<div><label class="f">Lot # (optional)</label><input class="in" id="vxLot"></div>'}</div>
+    <div class="grid cols-2" style="margin-top:10px"><div><label class="f">Given by</label><input class="in" id="vxBy" value="${esc(DB.staff||'')}"></div><div><label class="f">Next due in (days)</label><input class="in" type="number" id="vxInt" value="${list[0].interval}"><div class="hint">Auto-fills from Settings; change if needed. Leave blank for none.</div></div></div>
+    <button class="btn primary" style="margin-top:12px" onclick="addVaccine()">Record vaccine</button>`:`<div class="sub">No vaccines set up for this species yet. Add them in Settings.</div>`}
+   </div>
+   <div class="card"><h2>Vaccine history</h2>${a.vaccines.length?`<table><tr><th>Vaccine</th><th>Given</th><th>Next due</th><th></th></tr>${a.vaccines.slice().sort((x,y)=>y.date.localeCompare(x.date)).map(v=>`<tr><td><b>${esc(v.name)}</b>${v.lot?`<div class="sub">Lot ${esc(v.lot)}</div>`:''}${v.by?`<div class="sub">by ${esc(v.by)}</div>`:''}</td><td>${nice(v.date)}</td><td>${v.nextDue?`<span class="tag ${v.boosterDone?'ok':v.nextDue<todayStr()?'overdue':'due'}">${v.boosterDone?'Done':nice(v.nextDue)}</span>`:'—'}</td><td><button class="btn sm" onclick="delVaccine('${v.id}')">✕</button></td></tr>`).join('')}</table>`:'<div class="sub">No vaccines recorded yet.</div>'}</div></div>`;
+}
+function addVaccine(){const a=A();const name=document.getElementById('vxName').value,date=document.getElementById('vxDate').value,lot=document.getElementById('vxLot').value,by=document.getElementById('vxBy').value,int=parseInt(document.getElementById('vxInt').value);
+  // completing a booster for the same vaccine marks the earlier one done
+  a.vaccines.forEach(v=>{if(v.name===name&&v.nextDue&&!v.boosterDone&&date>=v.date)v.boosterDone=true;});
+  const planDose=(a.vaxPlan||[]).find(p=>!p.given&&p.name===name); if(planDose){planDose.given=date;planDose.by=by;}
+  a.vaccines.push({id:uid(),planId:planDose?planDose.id:null,name,date,lot,by,nextDue:int?addDays(date,int):''});a.updatedAt=Date.now();render();toast('Vaccine recorded');}
+function delVaccine(id){const a=A();const v=a.vaccines.find(x=>x.id===id);if(v&&v.planId){const p=(a.vaxPlan||[]).find(x=>x.id===v.planId);if(p){p.given=null;p.by='';}}a.vaccines=a.vaccines.filter(x=>x.id!==id);render();}
+document.addEventListener('change',e=>{if(e.target.id==='vxName'){const a=A();const v=(DB.settings.vaccines[a.species]||[]).find(x=>x.name===e.target.value);if(v)document.getElementById('vxInt').value=v.interval;}});
+
+function tabMeds(a){
+  a.treatments=a.treatments||[];
+  const meds=DB.settings.meds.filter(m=>m.species.includes(a.species));
+  return `<div class="grid cols-2">
+   <div class="card"><h2>Start a medication / dewormer</h2>
+    ${!a.weight?`<div class="banner lock" style="margin-bottom:10px">⚠️ No weight recorded. <button class="btn sm" onclick="promptWeight()">Add weight</button> to calculate doses.</div>`:`<div class="banner ok" style="margin-bottom:10px">Dosing from current weight: <b>${a.weight} lb</b></div>`}
+    ${meds.length?`<label class="f">Medication</label><select class="in" id="mdSel" onchange="render()">${meds.map(m=>`<option value="${m.id}" ${window._mdSel===m.id?'selected':''}>${esc(m.name)} — ${m.kind}</option>`).join('')}</select>
+    ${medPreview(a,meds.find(m=>m.id===(window._mdSel||meds[0].id))||meds[0])}`:`<div class="sub">No medications set up for this species. Add them in Settings.</div>`}
+   </div>
+   <div>${a.treatments.length? a.treatments.slice().reverse().map(tr=>treatmentHTML(a,tr)).join('') : '<div class="card"><h2>Active treatments</h2><div class="sub">Nothing started yet.</div></div>'}</div></div>`;
+}
+document.addEventListener('change',e=>{if(e.target.id==='mdSel'){window._mdSel=e.target.value;}});
+function medPreview(a,m){
+  const amt=doseAmount(m,a.species,a.weight);
+  const start=window._mdStart||todayStr();
+  const plan=buildPlan(m,start);
+  return `<div style="margin-top:10px"><label class="f">First dose date</label><input class="in" type="date" value="${start}" onchange="window._mdStart=this.value;render()" style="max-width:200px"></div>
+  <div class="banner info" style="margin-top:10px;flex-direction:column;align-items:flex-start;gap:4px"><div><b>${esc(m.name)}</b> · ${esc(m.notes)}</div>
+   <div>Formula for ${sp(a.species).name.toLowerCase()}: weight ÷ ${m.divisor[a.species]} → <b style="font-size:18px">${amt!=null?amt+' '+m.unit:'—'}</b> per dose</div></div>
+  <h3 style="margin-top:12px">Schedule preview (${plan.length} doses)</h3>
+  <div style="max-height:220px;overflow:auto">${plan.map(d=>`<div class="list-item"><span style="min-width:110px">${nice(d.date)}</span><span class="sub">${d.label}</span></div>`).join('')}</div>
+  <button class="btn primary" style="margin-top:12px" ${amt==null?'disabled':''} onclick="startTreatment('${m.id}')">Start ${esc(m.name)}</button>`;
+}
+function startTreatment(medId){const a=A();const m=DB.settings.meds.find(x=>x.id===medId);const start=window._mdStart||todayStr();
+  a.treatments.push({id:uid(),medId,medName:m.name,unit:m.unit,weight:a.weight,divisor:m.divisor[a.species],amount:doseAmount(m,a.species,a.weight),start,doses:buildPlan(m,start),notes:m.notes});
+  a.checklist=a.checklist||{}; if(m.kind==='Dewormer'&&!a.checklist['Dewormer started'])a.checklist['Dewormer started']={date:todayStr(),by:DB.staff||''};
+  a.updatedAt=Date.now();window._mdStart=null;render();toast(m.name+' started');}
+function treatmentHTML(a,tr){
+  const next=tr.doses.find(d=>!d.given);const allDone=!next;
+  const stale=a.weight&&a.weight!==tr.weight;
+  return `<div class="card" style="margin-bottom:14px"><div class="row" style="justify-content:space-between"><div><h2 style="margin:0">${esc(tr.medName)}</h2><div class="sub">Started ${nice(tr.start)} · dosed at ${tr.weight} lb ÷ ${tr.divisor} = <b>${tr.amount} ${tr.unit}</b></div></div>
+    <div class="row">${allDone?'<span class="tag ok">Complete</span>':`<span class="tag ${next.date<todayStr()?'overdue':next.date===todayStr()?'due':''}">Next: ${nice(next.date)}</span>`}<button class="btn sm" onclick="removeTreatment('${tr.id}')">Remove</button></div></div>
+    ${stale?`<div class="banner lock" style="margin:10px 0">⚠️ Weight is now ${a.weight} lb (was ${tr.weight} lb). Current weight gives <b>${Math.round(a.weight/tr.divisor*100)/100} ${tr.unit}</b>. <button class="btn sm" onclick="recalc('${tr.id}')">Recalculate remaining doses</button></div>`:''}
+    <div style="margin-top:12px">${tr.doses.map((d,i)=>`<div class="dose ${d.given?'given':''}"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--brand)" ${d.given?'checked':''} onchange="giveDose('${tr.id}',${i},this.checked)"><span class="d">${nice(d.date)}</span><span class="amt">${d.amount||tr.amount} ${tr.unit}</span><span class="lbl">${d.label}${d.given?` · given ${nice(d.given)}${d.by?' by '+esc(d.by):''}`:d.date<todayStr()?' · <b style="color:var(--danger)">overdue</b>':''}</span></div>`).join('')}</div></div>`;
+}
+function giveDose(tid,i,on){const a=A();const tr=a.treatments.find(t=>t.id===tid);const d=tr.doses[i];
+  if(on){d.given=todayStr();d.by=DB.staff||'';
+    // if given on a different day than planned, shift the remaining doses so the gaps stay correct
+    if(d.given!==d.date){const shift=daysBetween(d.date,d.given);for(let j=i;j<tr.doses.length;j++)tr.doses[j].date=addDays(tr.doses[j].date,shift);}
+  } else {d.given=null;d.by='';}
+  a.updatedAt=Date.now();render();}
+function recalc(tid){const a=A();const tr=a.treatments.find(t=>t.id===tid);const amt=Math.round(a.weight/tr.divisor*100)/100;tr.doses.forEach(d=>{if(!d.given)d.amount=amt;});tr.weight=a.weight;tr.amount=amt;render();toast('Remaining doses recalculated');}
+function removeTreatment(tid){if(!confirm('Remove this treatment and its schedule?'))return;const a=A();a.treatments=a.treatments.filter(t=>t.id!==tid);render();}
+
+function upcomingFor(a){
+  const out=[];
+  (a.treatments||[]).forEach(tr=>tr.doses.forEach(d=>{if(!d.given)out.push({date:d.date,type:'med',text:`${tr.medName} — ${d.label}`,amount:(d.amount||tr.amount)+' '+tr.unit,animal:a});}));
+  (a.vaccines||[]).forEach(v=>{if(v.nextDue&&!v.boosterDone&&!(a.vaxPlan||[]).some(p=>!p.given&&p.name===v.name))out.push({date:v.nextDue,type:'vax',text:`${v.name} due`,animal:a});});
+  (a.vaxPlan||[]).forEach(p=>{if(!p.given)out.push({date:p.date,type:'vax',text:`Vaccine: ${p.label}${p.note?' ('+p.note+')':''}`,animal:a});});
+  const he=holdEnds(a); if(he) out.push({date:fmtISO(he),type:'hold',text:'Stray hold ends',animal:a,done:he<new Date()});
+  return out.sort((x,y)=>x.date.localeCompare(y.date));
+}
+function tabSchedule(a){const ev=upcomingFor(a);
+  return `<div class="card" style="margin-bottom:14px"><h2>${esc(a.name)}'s calendar</h2>${calFilterHTML([a])}${monthHTML(ACAL,filterEvents(calEvents([a]),Object.assign({},CALF,{animal:'',species:''})),'navACal')}</div>
+  <div class="card"><h2>Everything scheduled</h2>${ev.length?`<table><tr><th>Date</th><th>What</th><th>Amount</th></tr>${ev.map(e=>`<tr><td>${parseISO(e.date).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',year:'numeric'})} ${e.date<todayStr()&&!e.done?'<span class="tag overdue">overdue</span>':e.date===todayStr()?'<span class="tag due">today</span>':''}</td><td>${e.text}</td><td><b>${e.amount||''}</b></td></tr>`).join('')}</table>`:'<div class="sub">Nothing scheduled.</div>'}</div>`;}
+
+/* ====================== TODAY ====================== */
+function renderToday(){
+  const t=todayStr();const all=[];DB.animals.filter(a=>!a.outcome).forEach(a=>upcomingFor(a).forEach(e=>{if(!e.done)all.push(e)}));
+  const overdue=all.filter(e=>e.date<t&&e.type!=='hold'),today=all.filter(e=>e.date===t),soon=all.filter(e=>e.date>t&&daysBetween(t,e.date)<=7);
+  const holds=DB.animals.filter(isLocked);
+  const row=e=>`<div class="list-item" style="cursor:pointer" onclick="openAnimal('${e.animal.id}')"><span class="avatar" style="width:34px;height:34px;font-size:18px;border-radius:10px">${sp(e.animal.species).icon}</span><div><b>${esc(e.animal.name)}</b> <span class="sub">— ${e.text}</span></div><span style="margin-left:auto;font-weight:700;color:var(--brand)">${e.amount||''}</span><span class="sub" style="min-width:60px;text-align:right">${niceShort(e.date)}</span></div>`;
+  return `<div class="topbar"><div><h1>Today</h1><div class="sub">${new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})}</div></div><div class="row"><button class="btn" onclick="printDaily()">🖨 Print daily sheet</button><button class="btn" onclick="printAll()">🖨 Print all records</button><button class="btn primary hide-m" onclick="openIntake()">＋ New Intake</button></div></div>
+  <div class="grid cols-4" style="margin-bottom:16px"><div class="stat"><div class="v">${DB.animals.filter(a=>!a.outcome).length}</div><div class="l">Animals in care</div></div><div class="stat"><div class="v" style="color:${overdue.length?'var(--danger)':'inherit'}">${overdue.length}</div><div class="l">Overdue</div></div><div class="stat"><div class="v">${today.length}</div><div class="l">Due today</div></div><div class="stat"><div class="v">${holds.length}</div><div class="l">On stray hold</div></div></div>
+  <div class="grid cols-2">
+   <div><div class="card" style="margin-bottom:14px"><h2>Due today</h2>${today.length?today.map(row).join(''):'<div class="sub">Nothing due today.</div>'}</div>
+     <div class="card"><h2 style="color:var(--danger)">Overdue</h2>${overdue.length?overdue.map(row).join(''):'<div class="sub">Nothing overdue. 🎉</div>'}</div></div>
+   <div><div class="card" style="margin-bottom:14px"><h2>Stray holds</h2>${holds.length?holds.map(a=>`<div class="list-item" style="cursor:pointer" onclick="openAnimal('${a.id}')"><span>${sp(a.species).icon}</span><b>${esc(a.name)}</b><span class="sub" style="margin-left:auto">${holdText(a)}</span></div>`).join(''):'<div class="sub">No animals on hold.</div>'}</div>
+     <div class="card"><h2>Next 7 days</h2>${soon.length?soon.map(row).join(''):'<div class="sub">Nothing scheduled this week.</div>'}</div></div></div>`;
+}
+
+/* ====================== CALENDAR ====================== */
+function calEvents(animals){
+  const evs={};const add=(k,e)=>(evs[k]=evs[k]||[]).push(e);
+  animals.forEach(a=>{(a.treatments||[]).forEach(tr=>tr.doses.forEach((d,i)=>{const n=tr.doses.length;add(d.given||d.date,{type:'med',name:tr.medName,done:!!d.given,start:i===0,cls:'med'+(d.given?' done':'')+(i===0?' first':''),t:`${i===0?'▶ ':''}${a.name}: ${tr.medName} ${d.amount||tr.amount}${tr.unit}${i===0?' START':' '+(i+1)+'/'+n}`,id:a.id,species:a.species,ref:{k:'dose',tr:tr.id,i},detail:(i===0?'First dose — series started · ':'Continuation · ')+d.label});}));
+    (a.vaccines||[]).forEach(v=>{add(v.date,{type:'vax',name:v.name,done:true,cls:'vax done',t:`${a.name}: ${v.name} given`,id:a.id,species:a.species,ref:{k:'vaxrec',v:v.id},detail:v.planId?'from plan':'manual record'});if(v.nextDue&&!v.boosterDone&&!(a.vaxPlan||[]).some(p=>!p.given&&p.name===v.name))add(v.nextDue,{type:'vax',name:v.name,done:false,cls:'vax',t:`${a.name}: ${v.name} due`,id:a.id,species:a.species,ref:{k:'vaxdue',v:v.id},detail:'booster due'});});
+    (a.vaxPlan||[]).forEach(p=>{if(!p.given){const series=a.vaxPlan.filter(x=>x.name===p.name).sort((x,y)=>x.date.localeCompare(y.date));const idx=series.indexOf(p);const first=idx===0;add(p.date,{type:'vax',name:p.name,done:false,start:first,cls:'vax'+(first?' first':''),t:`${first&&series.length>1?'▶ ':''}${a.name}: ${p.name}${series.length>1?(first?' START':' '+(idx+1)+'/'+series.length):''}`,id:a.id,species:a.species,ref:{k:'plan',p:p.id},detail:(series.length>1?(first?'First dose — series starts · ':'Continuation · '):'')+p.label+(p.note?' · '+p.note:'')});}});
+    add(a.intakeDate,{type:'intake',name:'',done:false,cls:'intake',t:`Intake: ${a.name}${a.intakeTime?' '+fmtTime(a.intakeTime):''}`,id:a.id,species:a.species,ref:{k:'intake'},detail:a.surrender});
+    const he=holdEnds(a);if(he)add(fmtISO(he),{type:'hold',name:'',done:he<new Date(),cls:'hold'+(he<new Date()?' done':''),t:`${a.name}: hold ends ${he.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}`,id:a.id,species:a.species,ref:{k:'hold'},detail:'48 h after intake'});});
+  return evs;
+}
+function filterEvents(evs,f){
+  const q=(f.q||'').trim().toLowerCase();const nameOf=id=>{const a=DB.animals.find(x=>x.id===id);return a?(a.name+' '+(a.breed||'')).toLowerCase():'';};
+  const out={};Object.entries(evs).forEach(([k,list])=>{const l=list.filter(e=>(f.type==='all'||e.type===f.type)&&(!f.animal||e.id===f.animal)&&(!q||nameOf(e.id).includes(q))&&(!f.species||e.species===f.species)&&(!f.name||e.name===f.name)&&(f.showDone||!e.done));if(l.length)out[k]=l;});return out;
+}
+const CALF={type:'all',animal:'',species:'',name:'',q:'',showDone:false};
+function calFilterHTML(animals){
+  const types=[['all','All'],['med','Medications'],['vax','Vaccines'],['intake','Intakes'],['hold','Hold ends']];
+  // count pending items per medication / vaccine across the shown animals
+  const counts={};const bump=(k)=>counts[k]=(counts[k]||0)+1;
+  animals.forEach(a=>{(a.treatments||[]).forEach(t=>t.doses.forEach(d=>{if(!d.given||CALF.showDone)bump('med:'+t.medName);}));
+    (a.vaxPlan||[]).forEach(p=>{if(!p.given)bump('vax:'+p.name);});(a.vaccines||[]).forEach(v=>{if(CALF.showDone)bump('vax:'+v.name);});});
+  const kind=CALF.type==='med'?'med':CALF.type==='vax'?'vax':null;
+  let chips='';
+  if(kind){
+    // show every configured med/vaccine for the species in view, even with 0 scheduled, so the list reads like a menu
+    const configured=new Set();
+    if(kind==='med')DB.settings.meds.forEach(m=>{if(!CALF.species||m.species.includes(CALF.species))configured.add(m.name);});
+    else Object.entries(DB.settings.vaccines).forEach(([spid,list])=>{if(!CALF.species||spid===CALF.species)list.forEach(v=>configured.add(v.name));});
+    Object.keys(counts).forEach(k=>{if(k.startsWith(kind+':'))configured.add(k.slice(4));});
+    const names=[...configured].filter(Boolean).sort();
+    const total=names.reduce((n,x)=>n+(counts[kind+':'+x]||0),0);
+    const info=n=>{if(kind==='med'){const m=DB.settings.meds.find(x=>x.name===n);return m?m.kind:'';}return 'Vaccine';};
+    chips=`<div class="chips" style="margin-bottom:12px"><button class="chip ${!CALF.name?'on':''}" onclick="CALF.name='';render()">All ${kind==='med'?'medications':'vaccines'} <span class="sub" style="${!CALF.name?'color:#dff0e6':''}">${total}</span></button>
+      ${names.map(n=>`<button class="chip ${CALF.name===n?'on':''}" onclick="CALF.name='${esc(n).replace(/'/g,"\\'")}';render()">${kind==='med'?'💊':'💉'} ${esc(n)} <span class="sub" style="${CALF.name===n?'color:#dff0e6':''}">${counts[kind+':'+n]||0}</span></button>`).join('')}</div>
+      ${CALF.name?`<div class="banner info" style="margin-bottom:12px">${medInfoHTML(kind,CALF.name)}</div>`:''}`;
+  }
+  const multi=animals.length>1;
+  const q=(CALF.q||'').trim().toLowerCase();const matches=q?animals.filter(a=>(a.name+' '+(a.breed||'')).toLowerCase().includes(q)):[];
+  const matchBar=q?`<div class="row" style="margin-bottom:10px"><span class="sub">${matches.length?'Showing:':'No animal matches “'+esc(CALF.q)+'”'}</span>${matches.map(a=>`<button class="chip" style="padding:5px 12px" onclick="openAnimal('${a.id}')">${sp(a.species).icon} ${esc(a.name)}</button>`).join('')}</div>`:'';
+  return `<div class="tabs" style="margin-bottom:12px">${types.map(t=>`<button class="tab ${CALF.type===t[0]?'active':''}" onclick="CALF.type='${t[0]}';CALF.name='';render()">${t[1]}</button>`).join('')}</div>
+  ${chips}
+  <div class="row" style="margin-bottom:12px">
+   ${multi?`<input class="in" id="calq" style="width:auto;min-width:190px;flex:1;max-width:280px" placeholder="🔍 Search animal name…" value="${esc(CALF.q||'')}" oninput="CALF.q=this.value;render();const i=document.getElementById('calq');i.focus();i.setSelectionRange(i.value.length,i.value.length)">
+   <select class="in" style="width:auto;min-width:150px" onchange="CALF.animal=this.value;render()"><option value="">All animals</option>${animals.slice().sort((x,y)=>x.name.localeCompare(y.name)).map(a=>`<option value="${a.id}" ${CALF.animal===a.id?'selected':''}>${sp(a.species).icon} ${esc(a.name)}</option>`).join('')}</select>
+   <select class="in" style="width:auto;min-width:140px" onchange="CALF.species=this.value;render()"><option value="">All species</option>${SPECIES.map(x=>`<option value="${x.id}" ${CALF.species===x.id?'selected':''}>${x.icon} ${x.name}</option>`).join('')}</select>`:''}
+   <label class="row" style="gap:6px;cursor:pointer;font-size:14px"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--brand)" ${CALF.showDone?'checked':''} onchange="CALF.showDone=this.checked;render()"> Show completed</label>
+   <button class="btn sm" onclick="Object.assign(CALF,{type:'all',animal:'',species:'',name:'',q:'',showDone:false});render()">Clear</button>
+   <div class="row" style="font-size:12px;margin-left:auto"><span class="ev med">Medication</span><span class="ev vax">Vaccine</span><span class="ev intake">Intake</span><span class="ev hold">Hold ends</span><span class="ev med first">START = first dose</span></div>
+  </div>${matchBar}`;
+}
+function medInfoHTML(kind,name){
+  if(kind==='med'){const m=DB.settings.meds.find(x=>x.name===name);if(!m)return `<b>${esc(name)}</b>`;
+    const dv=Object.entries(m.divisor).map(([sp_,d])=>`${sp(sp_).name}: weight ÷ ${d}`).join(' · ');
+    return `<b>💊 ${esc(m.name)}</b> <span class="tag">${m.kind}</span> — ${dv} → ${m.unit} per dose. ${esc(m.notes||'')}`;}
+  const prot=Object.entries(DB.settings.protocols).map(([spid,pr])=>{const it=pr.items.find(x=>x.name===name);return it?`${sp(spid).name}: adult ×${it.adult}, ${sp(spid).young.toLowerCase()} ×${it.young}${it.everyMonths&&it.young>1?' ('+it.everyMonths+' mo apart)':''}${it.minAgeMonths?', '+it.minAgeMonths+'+ months old':''}`:''}).filter(Boolean).join(' · ');
+  return `<b>💉 ${esc(name)}</b>${prot?' — '+prot:''}`;
+}
+function fmtTime(t){if(!t)return '';const [h,m]=t.split(':').map(Number);return new Date(2000,0,1,h,m).toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});}
+function monthHTML(cal,evs,nav){
+  const y=cal.getFullYear(),m=cal.getMonth();const startDow=new Date(y,m,1).getDay();const days=new Date(y,m+1,0).getDate();
+  const pre=`${y}-${String(m+1).padStart(2,'0')}`;evs=Object.fromEntries(Object.entries(evs).filter(([k])=>k.startsWith(pre)));
+  const ids=new Set();Object.values(evs).forEach(l=>l.forEach(e=>ids.add(e.id)));const solo=ids.size===1?DB.animals.find(a=>a.id===[...ids][0]):null;
+  const lbl=e=>solo?e.t.replace(solo.name+': ',''):e.t;
+  let cells='',listView='';for(let i=0;i<startDow;i++)cells+='<div class="day off"></div>';
+  for(let d=1;d<=days;d++){const iso=fmtISO(new Date(y,m,d));const list=evs[iso]||[];cells+=`<div class="day ${iso===todayStr()?'today':''}" ondblclick="openDay('${iso}')" title="Double-click to adjust this day"><div class="n" onclick="openDay('${iso}')" style="cursor:pointer">${d}</div>${list.slice(0,4).map(e=>`<span class="ev ${e.cls}" title="${esc(e.t)}" onclick="openAnimal('${e.id}')">${esc(lbl(e))}</span>`).join('')}${list.length>4?`<span class="sub">+${list.length-4} more</span>`:''}</div>`;
+    if(list.length) listView+=`<div class="cal-day"><div class="cd" onclick="openDay('${iso}')" style="cursor:pointer">${parseISO(iso).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'})} <span class="sub" style="font-weight:400">✎ tap to adjust</span>${iso===todayStr()?' <span class="tag ok">today</span>':''}</div>${list.map(e=>`<span class="ev ${e.cls}" onclick="openAnimal('${e.id}')">${esc(e.t)}</span>`).join('')}</div>`;}
+  if(!listView) listView='<div class="sub">Nothing matches this month.</div>';
+  const count=Object.values(evs).reduce((n,l)=>n+l.length,0);
+  return `<div class="row" style="justify-content:space-between;margin-bottom:12px"><div class="row"><button class="btn" onclick="${nav}(-1)">‹</button><b style="min-width:160px;text-align:center">${cal.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</b><button class="btn" onclick="${nav}(1)">›</button><button class="btn" onclick="${nav}(0)">Today</button></div><span class="sub">${count} item${count===1?'':'s'} this month</span></div>
+   <div class="cal">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<div class="dow">${d}</div>`).join('')}${cells}</div><div class="cal-list">${listView}</div>`;
+}
+function navCal(n){CAL=n===0?new Date():new Date(CAL.getFullYear(),CAL.getMonth()+n,1);render();}
+function navACal(n){ACAL=n===0?new Date():new Date(ACAL.getFullYear(),ACAL.getMonth()+n,1);render();}
+let ACAL=new Date();
+function renderCalendar(){
+  const animals=DB.animals.filter(a=>!a.outcome||CALF.showDone);
+  return `<div class="topbar"><div><h1>Calendar</h1><div class="sub">Medication doses, vaccine due dates, intakes and stray holds</div></div></div>
+   <div class="card">${calFilterHTML(animals)}${monthHTML(CAL,filterEvents(calEvents(animals),CALF),'navCal')}</div>`;
+}
+
+/* ====================== SETTINGS ====================== */
+function renderSettings(){
+  const S=DB.settings;
+  return `<div class="topbar"><div><h1>Settings</h1><div class="sub">Vaccine lists, medications and dosing formulas</div></div></div>
+  ${syCard()}
+  <div class="card section"><h2>Shelter</h2><label class="f">Name</label><input class="in" style="max-width:360px" value="${esc(S.shelterName)}" oninput="DB.settings.shelterName=this.value;document.getElementById('shelterName').textContent=this.value"></div>
+  <div class="card section"><h2>Vaccines by species</h2><div class="sub" style="margin-bottom:12px">These lists appear when recording a vaccine. "Next due" is the default number of days until a booster is due (leave 0 for none). <b>Starter lists are placeholders — replace them with what the shelter actually uses.</b></div>
+   ${SPECIES.map(s=>`<div style="margin-bottom:16px"><h3>${s.icon} ${s.name}</h3>${(S.vaccines[s.id]||[]).map((v,i)=>`<div class="row srow" style="margin-bottom:6px"><input class="in" style="flex:2" value="${esc(v.name)}" oninput="DB.settings.vaccines['${s.id}'][${i}].name=this.value"><span class="sub">next due in</span><input class="in" type="number" style="width:90px" value="${v.interval}" oninput="DB.settings.vaccines['${s.id}'][${i}].interval=parseInt(this.value)||0"><span class="sub">days</span><button class="btn sm" onclick="DB.settings.vaccines['${s.id}'].splice(${i},1);render()">✕</button></div>`).join('')}<button class="btn sm" onclick="(DB.settings.vaccines['${s.id}']=DB.settings.vaccines['${s.id}']||[]).push({name:'',interval:365});render()">＋ Add vaccine</button></div>`).join('')}</div>
+  <div class="card section"><h2>Vaccine protocols</h2><div class="sub" style="margin-bottom:12px">How many doses an adult gets vs. a puppy/kitten (3 months or younger), how far apart, and any minimum age. Stray dogs start after the 48-hour hold; everyone else starts on intake.</div>
+   ${Object.entries(S.protocols).map(([spid,pr])=>`<div style="margin-bottom:14px"><h3>${sp(spid).icon} ${sp(spid).name}</h3>
+    ${pr.items.map((it,i)=>`<div class="row srow" style="margin-bottom:6px"><input class="in" style="width:150px" value="${esc(it.name)}" oninput="DB.settings.protocols['${spid}'].items[${i}].name=this.value"><span class="sub">adult</span><input class="in" type="number" min="0" style="width:60px" value="${it.adult}" oninput="DB.settings.protocols['${spid}'].items[${i}].adult=parseInt(this.value)||0"><span class="sub">${sp(spid).young.toLowerCase()}</span><input class="in" type="number" min="0" style="width:60px" value="${it.young}" oninput="DB.settings.protocols['${spid}'].items[${i}].young=parseInt(this.value)||0"><span class="sub">every</span><input class="in" type="number" min="0" style="width:60px" value="${it.everyMonths||0}" oninput="DB.settings.protocols['${spid}'].items[${i}].everyMonths=parseInt(this.value)||0"><span class="sub">months · min age</span><input class="in" type="number" min="0" style="width:60px" value="${it.minAgeMonths||''}" oninput="DB.settings.protocols['${spid}'].items[${i}].minAgeMonths=parseInt(this.value)||0" placeholder="—"><span class="sub">months</span><button class="btn sm" onclick="DB.settings.protocols['${spid}'].items.splice(${i},1);render()">✕</button></div>`).join('')}
+    <button class="btn sm" onclick="DB.settings.protocols['${spid}'].items.push({name:'',adult:1,young:1,everyMonths:1});render()">＋ Add</button></div>`).join('')}
+   ${SPECIES.filter(x=>!S.protocols[x.id]).length?`<div class="row"><span class="sub">Add protocol for</span><select class="in" style="width:180px" onchange="if(this.value){DB.settings.protocols[this.value]={items:[]};render()}"><option value="">choose species…</option>${SPECIES.filter(x=>!S.protocols[x.id]).map(x=>`<option value="${x.id}">${x.icon} ${x.name}</option>`).join('')}</select></div>`:''}
+  </div>
+  <div class="card section"><h2>Medications & dewormers</h2><div class="sub" style="margin-bottom:12px">Dose = animal weight (lb) ÷ divisor. The schedule steps define how many doses, how far apart, and the gap before the next course.</div>
+   ${S.meds.map((m,i)=>`<div style="border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px">
+     <div class="grid cols-4"><div><label class="f">Name</label><input class="in" value="${esc(m.name)}" oninput="DB.settings.meds[${i}].name=this.value"></div><div><label class="f">Type</label><select class="in" onchange="DB.settings.meds[${i}].kind=this.value">${['Dewormer','Medication','Flea/Tick','Antibiotic','Other'].map(k=>`<option ${m.kind===k?'selected':''}>${k}</option>`).join('')}</select></div><div><label class="f">Dose unit</label><input class="in" value="${esc(m.unit)}" oninput="DB.settings.meds[${i}].unit=this.value"></div><div><label class="f">Dog divisor (wt ÷)</label><input class="in" type="number" step="0.1" value="${m.divisor.dog||''}" oninput="setDiv(${i},'dog',this.value)"></div></div>
+     <div class="grid cols-4" style="margin-top:8px"><div><label class="f">Cat divisor (wt ÷)</label><input class="in" type="number" step="0.1" value="${m.divisor.cat||''}" oninput="setDiv(${i},'cat',this.value)"></div><div style="grid-column:span 3"><label class="f">Notes / instructions</label><input class="in" value="${esc(m.notes)}" oninput="DB.settings.meds[${i}].notes=this.value"></div></div>
+     <h3 style="margin-top:12px">Schedule steps</h3>
+     ${m.plan.map((p,j)=>`<div class="row srow" style="margin-bottom:6px">${j>0?`<span class="sub">then wait</span><input class="in" type="number" style="width:70px" value="${p.gap?.months||p.gap?.days||0}" oninput="setGap(${i},${j},this.value,null)"><select class="in" style="width:95px" onchange="setGap(${i},${j},null,this.value)"><option ${p.gap?.months?'':'selected'}>days</option><option ${p.gap?.months?'selected':''}>months</option></select><span class="sub">, then</span>`:'<span class="sub">Start:</span>'}<input class="in" style="width:140px" value="${esc(p.label)}" oninput="DB.settings.meds[${i}].plan[${j}].label=this.value"><input class="in" type="number" style="width:65px" value="${p.doses}" oninput="DB.settings.meds[${i}].plan[${j}].doses=parseInt(this.value)||1"><span class="sub">doses, every</span><input class="in" type="number" style="width:65px" value="${p.everyDays}" oninput="DB.settings.meds[${i}].plan[${j}].everyDays=parseInt(this.value)||1"><span class="sub">days</span><button class="btn sm" onclick="DB.settings.meds[${i}].plan.splice(${j},1);render()">✕</button></div>`).join('')}
+     <div class="row" style="margin-top:8px"><button class="btn sm" onclick="DB.settings.meds[${i}].plan.push({gap:{days:14},label:'Next course',doses:1,everyDays:1});render()">＋ Add step</button><button class="btn sm danger" style="margin-left:auto" onclick="if(confirm('Remove ${esc(m.name)}?')){DB.settings.meds.splice(${i},1);render()}">Remove medication</button></div></div>`).join('')}
+   <button class="btn" onclick="DB.settings.meds.push({id:uid(),name:'New medication',kind:'Medication',unit:'mL',divisor:{dog:1,cat:1},species:['dog','cat'],plan:[{label:'Course 1',doses:1,everyDays:1}],notes:''});render()">＋ Add medication</button></div>
+  <div class="card section"><h2>Data</h2><div class="sub">Everything is stored in this browser on this computer. To share with another person, use <b>Backup / Export</b> and send them the file; they use <b>Import / Merge</b>. Merging keeps the newest version of each animal.</div>
+   <div class="row" style="margin-top:10px"><button class="btn" onclick="loadSeed()">🐾 Add Animals First roster (${SEED_ANIMALS.length})</button><button class="btn" onclick="exportData()">💾 Backup / Export</button><button class="btn" onclick="document.getElementById('importFile').click()">📂 Import / Merge</button><button class="btn danger" style="margin-left:auto" onclick="if(confirm('Erase ALL animals and reset settings? Export a backup first!')){localStorage.removeItem(KEY);DB=load();render()}">Erase everything</button></div></div>`;
+}
+function setDiv(i,s,v){const m=DB.settings.meds[i];const n=parseFloat(v);if(n){m.divisor[s]=n;if(!m.species.includes(s))m.species.push(s);}else{delete m.divisor[s];m.species=m.species.filter(x=>x!==s);}}
+function setGap(i,j,val,unit){const p=DB.settings.meds[i].plan[j];const cur=p.gap?.months?{n:p.gap.months,u:'months'}:{n:p.gap?.days||0,u:'days'};if(val!==null)cur.n=parseInt(val)||0;if(unit)cur.u=unit;p.gap=cur.u==='months'?{months:cur.n}:{days:cur.n};}
+
+/* ====================== EXPORT / IMPORT ====================== */
+function loadSeed(){let added=0;SEED_ANIMALS.forEach(x=>{if(!DB.animals.some(a=>a.id===x.id)){DB.animals.push(JSON.parse(JSON.stringify(x)));added++;}});render();toast(added?`Added ${added} animals from the Animals First roster`:'All roster animals are already here');}
+function exportData(){const blob=new Blob([JSON.stringify(DB,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`PATR-intake-backup-${todayStr()}.json`;a.click();toast('Backup downloaded');}
+function importData(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.animals)throw 0;let added=0,updated=0;d.animals.forEach(x=>{const i=DB.animals.findIndex(y=>y.id===x.id);if(i<0){DB.animals.push(x);added++;}else if((x.updatedAt||0)>(DB.animals[i].updatedAt||0)){DB.animals[i]=x;updated++;}});if(confirm('Also import that file\'s Settings (vaccine lists & medications)? Click Cancel to keep yours.'))DB.settings=Object.assign(defaultSettings(),d.settings);render();toast(`Merged: ${added} new, ${updated} updated`);}catch(e){toast('That file is not a valid backup');}inp.value='';};r.readAsText(f);}
+
+/* ====================== DAY EDITOR ====================== */
+let DAY=null;
+function dayAnimals(){ return CUR? [A()] : DB.animals.filter(a=>!a.outcome||CALF.showDone); }
+function openDay(iso){DAY=iso;showModal(dayHTML());}
+function dayHTML(){
+  const iso=DAY;const evs=calEvents(dayAnimals())[iso]||[];
+  const title=parseISO(iso).toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  const row=(e,i)=>{const a=DB.animals.find(x=>x.id===e.id);const movable=['dose','plan','intake','vaxrec'].includes(e.ref.k);const toggle=['dose','plan'].includes(e.ref.k);
+    return `<div class="dose ${e.done?'given':''}" style="flex-wrap:wrap">
+      ${toggle?`<input type="checkbox" style="width:18px;height:18px;accent-color:var(--brand)" ${e.done?'checked':''} onchange="dayToggle(${i},this.checked)" title="Mark given">`:`<span style="width:18px"></span>`}
+      <span class="ev ${e.cls.replace(' done','')}" style="cursor:default">${e.type==='med'?'💊':e.type==='vax'?'💉':e.type==='intake'?'🏠':'🔒'}</span>
+      <div style="flex:1;min-width:160px"><b>${esc(e.t)}</b><div class="sub">${esc(e.detail||'')}${e.done&&e.type!=='hold'?' · done':''}</div></div>
+      ${movable?`<label class="row" style="gap:6px"><span class="sub">Move to</span><input type="date" class="in" style="width:160px" value="${iso}" onchange="dayMove(${i},this.value)"></label>`:`<span class="sub">${e.ref.k==='hold'?'Set by intake date/time':'Set by the plan'}</span>`}
+      <button class="btn sm" onclick="closeModal();openAnimal('${e.id}')">Open ${esc(a?a.name:'')}</button></div>`};
+  return `<div class="mhead"><h2>${title}${iso===todayStr()?' <span class="tag ok">today</span>':''}</h2><button class="x" onclick="closeModal()">×</button></div>
+  <div class="row" style="margin-bottom:12px"><button class="btn sm" onclick="DAY=addDays(DAY,-1);refreshDay()">‹ Previous day</button><button class="btn sm" onclick="DAY=addDays(DAY,1);refreshDay()">Next day ›</button><span class="sub" style="margin-left:auto">${evs.length} item${evs.length===1?'':'s'}</span></div>
+  ${evs.length?evs.map(row).join(''):'<div class="empty" style="padding:30px"><div class="big">📅</div>Nothing scheduled on this day.</div>'}
+  <div class="hint" style="margin-top:10px">Moving a medication or vaccine dose will ask whether to shift the later doses in that series by the same number of days, so the gaps stay correct.</div>
+  <div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="closeModal()">Done</button></div>`;
+}
+function refreshDay(){document.getElementById('modalBody').innerHTML=dayHTML();render();}
+function dayEvent(i){return (calEvents(dayAnimals())[DAY]||[])[i];}
+function dayToggle(i,on){const e=dayEvent(i);const a=DB.animals.find(x=>x.id===e.id);
+  if(e.ref.k==='dose'){const tr=a.treatments.find(t=>t.id===e.ref.tr);const d=tr.doses[e.ref.i];if(on){d.given=DAY;d.by=DB.staff||'';}else{d.given=null;d.by='';}}
+  if(e.ref.k==='plan'){const idx=a.vaxPlan.findIndex(p=>p.id===e.ref.p);const saveCur=CUR;CUR=a.id;const p=a.vaxPlan[idx];
+    if(on){p.given=DAY;p.by=DB.staff||'';const later=a.vaxPlan.filter(x=>x.name===p.name&&!x.given&&x.date>DAY).sort((x,y)=>x.date.localeCompare(y.date))[0];const def=(DB.settings.vaccines[a.species]||[]).find(v=>v.name===p.name);a.vaccines.forEach(v=>{if(v.name===p.name&&v.nextDue&&!v.boosterDone)v.boosterDone=true;});a.vaccines.push({id:uid(),planId:p.id,name:p.name,date:DAY,lot:'',by:p.by,nextDue:later?later.date:(def&&def.interval?addDays(DAY,def.interval):'')});}
+    else{p.given=null;p.by='';a.vaccines=a.vaccines.filter(v=>v.planId!==p.id);}
+    CUR=saveCur;}
+  a.updatedAt=Date.now();refreshDay();}
+function dayMove(i,newDate){if(!newDate||newDate===DAY)return;const e=dayEvent(i);const a=DB.animals.find(x=>x.id===e.id);const shift=daysBetween(DAY,newDate);
+  if(e.ref.k==='dose'){const tr=a.treatments.find(t=>t.id===e.ref.tr);const d=tr.doses[e.ref.i];
+    if(d.given){d.given=newDate;}else{const rest=tr.doses.slice(e.ref.i+1).filter(x=>!x.given);const all=rest.length&&confirm(`Also move the ${rest.length} later ${tr.medName} dose${rest.length>1?'s':''} by ${Math.abs(shift)} day${Math.abs(shift)>1?'s':''}?`);d.date=newDate;if(all)rest.forEach(x=>x.date=addDays(x.date,shift));}}
+  else if(e.ref.k==='plan'){const p=a.vaxPlan.find(x=>x.id===e.ref.p);const rest=a.vaxPlan.filter(x=>x.name===p.name&&!x.given&&x.date>p.date);const all=rest.length&&confirm(`Also move the ${rest.length} later ${p.name} dose${rest.length>1?'s':''} by ${Math.abs(shift)} day${Math.abs(shift)>1?'s':''}?`);p.date=newDate;if(all)rest.forEach(x=>x.date=addDays(x.date,shift));}
+  else if(e.ref.k==='vaxrec'){const v=a.vaccines.find(x=>x.id===e.ref.v);v.date=newDate;if(v.planId){const p=a.vaxPlan.find(x=>x.id===v.planId);if(p)p.given=newDate;}}
+  else if(e.ref.k==='intake'){if(isLocked(a)&&!confirm('This dog is on the 48-hour stray hold. Changing the intake date also moves when the hold ends. Continue?'))return;a.intakeDate=newDate;if(!(a.vaxPlan||[]).some(x=>x.given))a.vaxPlan=buildVaxPlan(a);}
+  a.updatedAt=Date.now();DAY=newDate;refreshDay();toast('Moved to '+nice(newDate));}
+
+/* ====================== PRINTABLE SHEETS ====================== */
+function printHTML(html){document.getElementById('sheet').innerHTML=html;setTimeout(()=>window.print(),50);}
+const box=v=>`<span class="box ${v?'x':''}"></span>`;
+function animalSheet(a){
+  const s=sp(a.species);const he=holdEnds(a);const printed=new Date().toLocaleString(undefined,{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});
+  const plan=a.vaxPlan||[],vax=(a.vaccines||[]).slice().sort((x,y)=>x.date.localeCompare(y.date)),trs=a.treatments||[];
+  const up=upcomingFor(a).filter(e=>!e.done);
+  return `
+  <div class="hd">${a.photo?`<img src="${esc(a.photo)}" alt="" style="width:110px;height:110px;object-fit:cover;border-radius:8px;margin-right:14px">`:''}<div style="flex:1"><h1>${esc(a.name)}</h1><div>${s.name}${a.breed?' · '+esc(a.breed):''}${a.sex?' · '+a.sex:''} · ${ageText(a)} · ${a.weight?a.weight+' lb':'weight not recorded'}</div>
+    <div class="small">Record ${a.id.slice(0,8).toUpperCase()} · ${a.surrender} · Intake ${nice(a.intakeDate)}${a.intakeTime?' '+fmtTime(a.intakeTime):''} · Day ${daysBetween(a.intakeDate,todayStr())+1} in care${a.outcome?' · '+esc(a.outcome)+' '+nice(a.outcomeDate):''}</div></div>
+    <div class="org"><b>${esc(DB.settings.shelterName)}</b><br>Animal Record<br>Printed ${printed}</div></div>
+  ${he?`<div class="alert">${he>new Date()?'🔒 48-HOUR STRAY HOLD IN EFFECT — ends '+he.toLocaleString(undefined,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'Stray hold completed '+he.toLocaleString(undefined,{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</div>`:''}
+
+  <h2>Details</h2>
+  <div class="kv"><div>Species</div><div>${s.name}</div><div>Intake type</div><div>${a.surrender}${a.recordsProvided?' (vaccine records provided)':''}</div>
+   <div>Breed</div><div>${esc(a.breed)||'—'}</div><div>Intake date</div><div>${nice(a.intakeDate)} ${a.intakeTime?fmtTime(a.intakeTime):''}</div>
+   <div>Sex</div><div>${a.sex||'Unknown'}</div><div>Weight</div><div>${a.weight?a.weight+' lb':'—'}${(a.weights||[]).length>1?' <span class="small">('+a.weights.map(w=>w.weight+' lb '+niceShort(w.date)).join(', ')+')</span>':''}</div>
+   <div>Color</div><div>${esc(a.color)||'—'}</div><div>Microchip</div><div>${esc(a.microchip)||'None'}${a.rabiesTag?' · Rabies tag '+esc(a.rabiesTag):''}</div>
+   <div>Age</div><div>${ageText(a)}${a.birthday?' · born '+nice(a.birthday):''}</div><div>Status</div><div>${a.outcome?esc(a.outcome)+' · '+nice(a.outcomeDate):'In care'}${a.altered?' · '+(a.altered==='Yes'?'altered':'intact'):''}</div></div>
+  ${a.notes?`<div style="margin-top:8px"><b>Notes:</b> ${esc(a.notes)}</div>`:''}
+
+  <h2>Intake checklist</h2>
+  <div class="cols">${INTAKE_CHECKLIST.map(i=>{const v=(a.checklist||{})[i];return `<label>${box(v)}${i}${v?` <span class="small">— ${niceShort(v.date)}${v.by?' '+esc(v.by):''}</span>`:''}</label>`}).join('')}</div>
+
+  <h2>Vaccines</h2>
+  ${plan.length?`<div class="small" style="margin-bottom:4px">Plan: ${isYoung(a)?s.young+' schedule':'Adult schedule'} · starts ${nice(vaxStartDate(a))}${he?' (after 48h hold)':''}</div>
+  <table><tr><th style="width:24px"></th><th>Vaccine</th><th>Scheduled</th><th>Given</th><th>By</th>${a.species==='cat'?'':'<th>Lot #</th>'}<th>Notes</th></tr>
+  ${plan.map(d=>{const v=vax.find(x=>x.planId===d.id);return `<tr><td>${box(d.given)}</td><td>${esc(d.label)}</td><td>${nice(d.date)}</td><td>${d.given?nice(d.given):''}</td><td>${esc(d.by||'')}</td>${a.species==='cat'?'':`<td>${esc(v?.lot||'')}</td>`}<td>${esc(d.note||'')}</td></tr>`}).join('')}</table>`:a.recordsProvided?'<div class="small">Owner provided vaccination records — no shelter plan.</div>':'<div class="small">No vaccine plan.</div>'}
+  ${vax.filter(v=>!v.planId).length?`<div class="small" style="margin:8px 0 4px"><b>Other / prior vaccines</b></div><table><tr><th>Vaccine</th><th>Given</th><th>Next due</th><th>By</th>${a.species==='cat'?'':'<th>Lot #</th>'}</tr>${vax.filter(v=>!v.planId).map(v=>`<tr><td>${esc(v.name)}</td><td>${nice(v.date)}</td><td>${v.nextDue?nice(v.nextDue):'—'}</td><td>${esc(v.by||'')}</td>${a.species==='cat'?'':`<td>${esc(v.lot||'')}</td>`}</tr>`).join('')}</table>`:''}
+
+  <h2>Medications & dewormers</h2>
+  ${trs.length?trs.map(tr=>`<div style="margin-bottom:10px"><b>${esc(tr.medName)}</b> — ${tr.weight} lb ÷ ${tr.divisor} = <b>${tr.amount} ${tr.unit}</b> per dose · started ${nice(tr.start)}<div class="small">${esc(tr.notes||'')}</div>
+   <table style="margin-top:4px"><tr><th style="width:24px"></th><th>Dose</th><th>Scheduled</th><th>Amount</th><th>Given</th><th>By</th></tr>
+   ${tr.doses.map(d=>`<tr><td>${box(d.given)}</td><td>${esc(d.label)}</td><td>${nice(d.date)}</td><td>${d.amount||tr.amount} ${tr.unit}</td><td>${d.given?nice(d.given):''}</td><td>${esc(d.by||'')}</td></tr>`).join('')}</table></div>`).join(''):'<div class="small">None started.</div>'}
+
+  <h2>Upcoming</h2>
+  ${up.length?`<table><tr><th>Date</th><th>What</th><th>Amount</th><th style="width:70px">Done</th></tr>${up.map(e=>`<tr><td>${parseISO(e.date).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',year:'numeric'})}${e.date<todayStr()?' <b>(overdue)</b>':''}</td><td>${e.text}</td><td>${e.amount||''}</td><td>${box(false)}</td></tr>`).join('')}</table>`:'<div class="small">Nothing scheduled.</div>'}
+
+  <div class="sig"><div>Staff signature</div><div>Date</div><div>Reviewed by</div></div>`;
+}
+function printAnimal(){printHTML(animalSheet(A()));}
+function printAll(){const list=DB.animals.filter(a=>!a.outcome).sort((x,y)=>x.name.localeCompare(y.name));printHTML(list.map((a,i)=>`<div class="${i?'pg':''}">${animalSheet(a)}</div>`).join(''));}
+function dailySheet(){
+  const t=todayStr();const all=[];DB.animals.filter(a=>!a.outcome).forEach(a=>upcomingFor(a).forEach(e=>{if(!e.done)all.push(e)}));
+  const overdue=all.filter(e=>e.date<t&&e.type!=='hold'),today=all.filter(e=>e.date===t),soon=all.filter(e=>e.date>t&&daysBetween(t,e.date)<=7);
+  const holds=DB.animals.filter(isLocked);
+  const tbl=rows=>rows.length?`<table><tr><th style="width:24px"></th><th>Animal</th><th>Task</th><th>Amount</th><th>Date</th><th>By / notes</th></tr>${rows.map(e=>`<tr><td>${box(false)}</td><td><b>${esc(e.animal.name)}</b> <span class="small">${sp(e.animal.species).name}${e.animal.weight?' · '+e.animal.weight+' lb':''}</span></td><td>${e.text}</td><td><b>${e.amount||''}</b></td><td>${niceShort(e.date)}</td><td></td></tr>`).join('')}</table>`:'<div class="small">None.</div>';
+  const inCare=DB.animals.filter(a=>!a.outcome).sort((x,y)=>x.name.localeCompare(y.name));
+  return `<div class="hd"><div><h1>Daily Care Sheet</h1><div>${new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}</div></div><div class="org"><b>${esc(DB.settings.shelterName)}</b><br>${inCare.length} animals in care</div></div>
+  ${holds.length?`<div class="alert">🔒 On 48-hour stray hold: ${holds.map(a=>esc(a.name)+' (ends '+holdEnds(a).toLocaleString(undefined,{weekday:'short',hour:'numeric',minute:'2-digit'})+')').join(' · ')}</div>`:''}
+  <h2>Overdue</h2>${tbl(overdue)}
+  <h2>Due today</h2>${tbl(today)}
+  <h2>Next 7 days</h2>${tbl(soon)}
+  <h2>Animals in care</h2>
+  <table><tr><th>Name</th><th>Species / breed</th><th>Sex</th><th>Age</th><th>Weight</th><th>Intake</th><th>Type</th><th>Checklist</th></tr>
+  ${inCare.map(a=>`<tr><td><b>${esc(a.name)}</b></td><td>${sp(a.species).name}${a.breed?' · '+esc(a.breed):''}</td><td>${a.sex||'—'}</td><td>${ageText(a)}</td><td>${a.weight?a.weight+' lb':'—'}</td><td>${niceShort(a.intakeDate)}</td><td>${a.surrender}${isLocked(a)?' 🔒':''}</td><td>${Object.values(a.checklist||{}).filter(Boolean).length}/${INTAKE_CHECKLIST.length}</td></tr>`).join('')}</table>
+  <div class="sig"><div>Completed by</div><div>Date / time</div></div>`;
+}
+function printDaily(){printHTML(dailySheet());}
+
+/* ====================== MODAL ====================== */
+function showModal(html){document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('open');document.body.classList.add('modal-open');setTimeout(()=>{const i=document.querySelector('#modalBody input');i&&i.focus();},50);}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.classList.remove('modal-open');}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+setInterval(()=>{if(VIEW==='animals'||VIEW==='today')render();},60000); // keep hold countdowns fresh
+/* ================= SHARED SYNC (optional, offline-first) ================= */
+const SYNC_DEFAULT={url:'https://rerrsetgnrbyaljnfpws.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJlcnJzZXRnbnJieWFsam5mcHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyNTc3NDQsImV4cCI6MjEwNjgzMzc0NH0.WyTab9P6iKf9ESbnBzNLzlh3sBXWwkmBgPIoYFM1K18'};
+const SKEY='patr_sync_v1';
+let SY=(()=>{try{return Object.assign({url:'',key:'',session:null,profile:null,cursor:'',scursor:'',pushed:{},spushed:0},JSON.parse(localStorage.getItem(SKEY))||{});}catch(e){return {url:'',key:'',session:null,profile:null,cursor:'',scursor:'',pushed:{},spushed:0};}})();
+let SYS={state:'idle',last:0,err:'',busy:false,team:null,authErr:'',authBusy:false,mode:'in'};
+function syCfg(){return {url:(SY.url||SYNC_DEFAULT.url||'').replace(/\/+$/,''),key:SY.key||SYNC_DEFAULT.key||''};}
+function syOn(){const c=syCfg();return !!(c.url&&c.key);}
+function sySave(){try{localStorage.setItem(SKEY,JSON.stringify(SY));}catch(e){}}
+function syRole(){return SY.profile?SY.profile.role:'';}
+function syOK(){return syOn()&&SY.session&&(syRole()==='staff'||syRole()==='admin');}
+async function syFetch(path,opt={}){
+  const c=syCfg();const h=Object.assign({apikey:c.key,'Content-Type':'application/json'},opt.headers||{});
+  if(SY.session&&!opt.noAuth)h.Authorization='Bearer '+SY.session.access_token;
+  const r=await fetch(c.url+path,Object.assign({},opt,{headers:h}));
+  return r;
+}
+async function syRefresh(){
+  if(!SY.session||!SY.session.refresh_token)return false;
+  try{const r=await syFetch('/auth/v1/token?grant_type=refresh_token',{method:'POST',noAuth:true,body:JSON.stringify({refresh_token:SY.session.refresh_token})});
+    if(r.status===400||r.status===401||r.status===403){SY.session=null;SY.profile=null;sySave();return false;}
+    if(!r.ok)return true;const j=await r.json();syTake(j);return true;}catch(e){return true;}
+}
+function syTake(j){SY.session={access_token:j.access_token,refresh_token:j.refresh_token,expires_at:Date.now()+((j.expires_in||3600)-60)*1000,user:j.user?{id:j.user.id,email:j.user.email}:(SY.session&&SY.session.user)};sySave();}
+async function syReq(path,opt){ // auto-refresh when token is near/after expiry
+  if(SY.session&&Date.now()>SY.session.expires_at)await syRefresh();
+  let r=await syFetch(path,opt);
+  if(r.status===401&&SY.session){if(await syRefresh()&&SY.session)r=await syFetch(path,opt);}
+  return r;
+}
+async function syAuth(mode,email,pass,name){
+  SYS.authBusy=true;SYS.authErr='';syGate();
+  try{
+    let r;
+    if(mode==='up')r=await syFetch('/auth/v1/signup',{method:'POST',noAuth:true,body:JSON.stringify({email,password:pass,data:{name:name||''}})});
+    else r=await syFetch('/auth/v1/token?grant_type=password',{method:'POST',noAuth:true,body:JSON.stringify({email,password:pass})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.access_token){SYS.authErr=j.msg||j.error_description||j.message||j.error||(mode==='up'&&r.ok?'Account created — check your email to confirm, then sign in.':'Could not sign in');}
+    else{syTake(j);await syProfile();syHello();}
+  }catch(e){SYS.authErr='No internet connection — you need to be online to sign in the first time.';}
+  SYS.authBusy=false;syGate();render();syChip();if(syOK())syNow();
+}
+async function syProfile(){
+  if(!SY.session)return;
+  try{const r=await syReq('/rest/v1/profiles?select=*&id=eq.'+SY.session.user.id);if(r.ok){const a=await r.json();if(a[0]){SY.profile=a[0];sySave();}}}catch(e){}
+}
+function syHello(){ if(SY.profile&&SY.profile.name){DB.staff=SY.profile.name;} }
+function syOut(){SY.session=null;SY.profile=null;SY.cursor='';SY.scursor='';SY.pushed={};SY.spushed=0;sySave();SYS.state='idle';render();}
+/* ---- change detection ---- */
+const SYSEEN={};
+function syIndex(){DB.animals.forEach(a=>{SYSEEN[a.id]=JSON.stringify(a);});}
+function syScan(){ // called from save(): bump updatedAt on anything edited since last scan
+  let ch=false;DB.tombstones=DB.tombstones||[];
+  DB.animals.forEach(a=>{const s=JSON.stringify(a);const old=SYSEEN[a.id];
+    if(old===undefined){SYSEEN[a.id]=s;return;}
+    if(old!==s){const o=JSON.parse(old);const same=JSON.stringify(Object.assign({},o,{updatedAt:0}))===JSON.stringify(Object.assign({},a,{updatedAt:0}));
+      if(!same&&a.updatedAt===o.updatedAt){a.updatedAt=Date.now();}
+      SYSEEN[a.id]=JSON.stringify(a);ch=true;}});
+  const hs=JSON.stringify(DB.settings);if(SY.shash!==undefined&&SY.shash!==hs){DB.settingsUpdatedAt=Date.now();ch=true;}SY.shash=hs;
+  if(ch)sySoon();
+}
+let _syT=null;function sySoon(){if(!syOK())return;clearTimeout(_syT);_syT=setTimeout(syNow,1500);}
+/* ---- pull / push ---- */
+function syApplyRemote(row){
+  const i=DB.animals.findIndex(a=>a.id===row.id);const ru=(row.data&&row.data.updatedAt)||0;
+  if(row.deleted){if(i>=0){DB.animals.splice(i,1);if(CUR===row.id)CUR=null;}SY.pushed[row.id]=Number.MAX_SAFE_INTEGER;delete SYSEEN[row.id];return true;}
+  if(i<0){DB.animals.push(row.data);SYSEEN[row.id]=JSON.stringify(row.data);SY.pushed[row.id]=ru;return true;}
+  if(ru>(DB.animals[i].updatedAt||0)){DB.animals[i]=row.data;SYSEEN[row.id]=JSON.stringify(row.data);SY.pushed[row.id]=ru;return true;}
+  if(ru===(DB.animals[i].updatedAt||0)){SY.pushed[row.id]=ru;}
+  return false;
+}
+async function syPull(){
+  let changed=false;
+  for(let n=0;n<20;n++){
+    const q='/rest/v1/animals?select=*&order=updated_at.asc&limit=500'+(SY.cursor?'&updated_at=gt.'+encodeURIComponent(SY.cursor):'');
+    const r=await syReq(q);if(!r.ok)throw new Error('pull '+r.status);
+    const rows=await r.json();rows.forEach(row=>{if(syApplyRemote(row))changed=true;});
+    if(rows.length)SY.cursor=rows[rows.length-1].updated_at;
+    if(rows.length<500)break;
+  }
+  const r2=await syReq('/rest/v1/shared_settings?select=*&id=eq.main');
+  if(r2.ok){const a=await r2.json();if(a[0]){const ru=a[0].data.updatedAt||0;
+    if(ru>(DB.settingsUpdatedAt||0)){const keep=DB.settings.shelterName;DB.settings=Object.assign(defaultSettings(),a[0].data.settings);DB.settingsUpdatedAt=ru;SY.shash=JSON.stringify(DB.settings);changed=true;}
+    SY.spushed=Math.max(SY.spushed||0,Math.min(ru,DB.settingsUpdatedAt||0));}}
+  return changed;
+}
+async function syPush(){
+  const tomb=(DB.tombstones||[]);
+  const rows=DB.animals.filter(a=>(a.updatedAt||0)>(SY.pushed[a.id]||0)).map(a=>({id:a.id,data:a,deleted:false}));
+  tomb.forEach(t=>rows.push({id:t.id,data:{id:t.id,updatedAt:t.at},deleted:true}));
+  for(let i=0;i<rows.length;i+=50){
+    const part=rows.slice(i,i+50);
+    const r=await syReq('/rest/v1/animals?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(part)});
+    if(!r.ok)throw new Error('push '+r.status);
+    part.forEach(p=>{SY.pushed[p.id]=p.deleted?Number.MAX_SAFE_INTEGER:p.data.updatedAt;});
+  }
+  if(tomb.length)DB.tombstones=[];
+  if(syRole()==='admin'&&(DB.settingsUpdatedAt||0)>(SY.spushed||0)){
+    const r=await syReq('/rest/v1/shared_settings?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify([{id:'main',data:{updatedAt:DB.settingsUpdatedAt,settings:DB.settings}}])});
+    if(r.ok)SY.spushed=DB.settingsUpdatedAt;
+  }
+  sySave();
+}
+async function syNow(){
+  if(!syOn()||!SY.session||SYS.busy)return;
+  if(!navigator.onLine){SYS.state='offline';syChip();return;}
+  SYS.busy=true;SYS.state='sync';syChip();
+  try{
+    await syProfile();syGate();
+    if(!syOK()){SYS.state='idle';SYS.busy=false;render();return;}
+    syHello();
+    const ch=await syPull();
+    if(ch){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){}}
+    await syPush();try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){}
+    SYS.state='ok';SYS.last=Date.now();SYS.err='';
+    if(ch&&!document.querySelector('.modal-bg.open')&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||''))render();
+  }catch(e){SYS.state=navigator.onLine?'err':'offline';SYS.err=String(e.message||e);}
+  SYS.busy=false;syChip();
+}
+function syAgo(){if(!SYS.last)return'';const s=Math.round((Date.now()-SYS.last)/1000);return s<60?'just now':Math.round(s/60)+' min ago';}
+function syChip(){
+  let c=document.getElementById('syncChip');if(!c){c=document.createElement('div');c.id='syncChip';c.onclick=()=>{VIEW='settings';CUR=null;render();};document.body.appendChild(c);}
+  if(!syOn()||!SY.session){c.style.display='none';return;}c.style.display='';
+  const m={ok:['☁','Synced '+syAgo(),'ok'],sync:['🔄','Syncing…','sync'],offline:['📴','Offline — saved on this device','off'],err:['⚠️','Sync problem — will retry','err'],idle:['☁',syRole()==='pending'?'Waiting for approval':'Sign-in','off']}[SYS.state]||['☁','','off'];
+  c.className='sy-'+m[2];c.innerHTML='<span>'+m[0]+'</span><b>'+m[1]+'</b>';
+}
+/* ---- login / waiting screens ---- */
+function syGate(){
+  let g=document.getElementById('syGate');
+  const need=syOn()&&(!SY.session||syRole()==='pending'||!SY.profile);
+  if(!need){if(g)g.remove();document.body.classList.remove('gate-open');return;}
+  if(!g){g=document.createElement('div');g.id='syGate';document.body.appendChild(g);}
+  document.body.classList.add('gate-open');
+  if(SY.session&&(SY.profile&&SY.profile.role==='pending')){
+    g.innerHTML=`<div class="gbox"><div class="paw">🐾</div><h2>Almost there${SY.profile.name?', '+esc(SY.profile.name):''}!</h2><p>Your account (<b>${esc(SY.session.user.email)}</b>) is waiting for an admin to approve it. Once approved you'll see all animals.</p><button class="btn primary" onclick="syCheck()">Check again</button> <button class="btn" onclick="syOut()">Sign out</button></div>`;return;}
+  if(SY.session&&!SY.profile){
+    g.innerHTML=`<div class="gbox"><div class="paw">🐾</div><h2>Connecting…</h2><p>${navigator.onLine?'Loading your account.':'You are offline. Connect to the internet to finish signing in.'}</p><button class="btn" onclick="syCheck()">Try again</button> <button class="btn" onclick="syOut()">Sign out</button></div>`;return;}
+  const up=SYS.mode==='up';
+  g.innerHTML=`<form class="gbox" onsubmit="event.preventDefault();syAuth(SYS.mode,this.em.value.trim(),this.pw.value,this.nm?this.nm.value.trim():'')">
+    <div class="paw">🐾</div><h2>${up?'Create your login':'Sign in'}</h2><p class="sub">Paws Along the River · shared records</p>
+    ${up?'<label class="f">Your name (shown on records)</label><input class="in" name="nm" required autocomplete="name">':''}
+    <label class="f">Email</label><input class="in" name="em" type="email" required autocomplete="username">
+    <label class="f">Password ${up?'(6+ characters)':''}</label><input class="in" name="pw" type="password" required minlength="6" autocomplete="${up?'new-password':'current-password'}">
+    ${SYS.authErr?`<div class="banner lock" style="margin-top:10px">${esc(SYS.authErr)}</div>`:''}
+    <button class="btn primary" style="width:100%;margin-top:14px" ${SYS.authBusy?'disabled':''}>${SYS.authBusy?'Please wait…':(up?'Create account':'Sign in')}</button>
+    <p class="sub" style="text-align:center;margin-top:12px">${up?'Already have a login? <a href="#" onclick="SYS.mode=\'in\';SYS.authErr=\'\';syGate();return false">Sign in</a>':'New here? <a href="#" onclick="SYS.mode=\'up\';SYS.authErr=\'\';syGate();return false">Create a login</a>'}<br>${up?'An admin has to approve new logins.':''}</p></form>`;
+}
+async function syCheck(){await syProfile();syGate();render();if(syOK())syNow();}
+/* ---- Settings: account + team ---- */
+async function syLoadTeam(){try{const r=await syReq('/rest/v1/profiles?select=*&order=created_at.asc');if(r.ok){SYS.team=await r.json();if(VIEW==='settings')render();}}catch(e){}}
+async function syRoleSet(id,role){try{const r=await syReq('/rest/v1/profiles?id=eq.'+id,{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({role})});if(!r.ok)toast('Could not change role');else toast('Updated');}catch(e){toast('Offline — try again online');}syLoadTeam();}
+function syCard(){
+  if(!syOn())return '';
+  if(!SY.session)return `<div class="card section"><h2>Shared sync</h2><p class="sub">Not signed in.</p></div>`;
+  const adm=syRole()==='admin';
+  if(adm&&SYS.team===null){SYS.team=[];syLoadTeam();}
+  const team=adm&&SYS.team?`<h3 style="margin:16px 0 6px;font-size:15px">Team</h3><div class="sub" style="margin-bottom:6px">Approve new logins here. Staff can edit animals; admins can also change settings and approve people.</div>${SYS.team.map(p=>`<div class="row srow" style="margin-bottom:6px;justify-content:space-between"><div style="min-width:0"><b>${esc(p.name||'')}</b> <span class="sub">${esc(p.email||'')}</span></div>${p.id===SY.session.user.id?'<span class="tag ok">you · '+p.role+'</span>':`<select class="in" style="width:auto" onchange="syRoleSet('${p.id}',this.value)">${['pending','staff','admin'].map(r=>`<option ${p.role===r?'selected':''}>${r}</option>`).join('')}</select>`}</div>`).join('')}`:'';
+  return `<div class="card section"><h2>Shared sync</h2>
+   <div class="row" style="justify-content:space-between"><div><b>${esc((SY.profile&&SY.profile.name)||'')}</b> <span class="sub">${esc(SY.session.user.email)} · ${syRole()}</span><div class="sub">${SYS.state==='ok'?'Synced '+syAgo():SYS.state==='offline'?'Offline — changes are saved here and will upload when you reconnect':SYS.state==='err'?'Sync problem: '+esc(SYS.err):'…'}</div></div>
+   <div class="row"><button class="btn" onclick="syNow()">Sync now</button><button class="btn" onclick="if(confirm('Sign out on this device? Unsynced changes stay saved here.'))syOut()">Sign out</button></div></div>${team}</div>`;
+}
+/* ---- start ---- */
+function syStart(){
+  syIndex();SY.shash=JSON.stringify(DB.settings);
+  syGate();syChip();
+  if(SY.session){syRefresh().then(async ok=>{if(SY.session){await syProfile();}syGate();syChip();if(syOK())syNow();});}
+  setInterval(()=>{if(syOK()&&!document.hidden)syNow();syChip();},20000);
+  window.addEventListener('online',()=>{syNow();});
+  window.addEventListener('offline',()=>{SYS.state='offline';syChip();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&syOK())syNow();});
+}
+
+render();syStart();
+</script>
+</body>
+</html>
